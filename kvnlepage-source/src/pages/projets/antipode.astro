@@ -18,7 +18,7 @@ import Layout from '../../layouts/Layout.astro';
     <!-- Section 1: Antipode 1 (Figma node 54:10, 1512x982px) -->
     <section id="anxiete-1" class="section anxiete-1">
       <!-- Layer 2: Dot patterns -->
-      <div class="dots-top-right"></div>
+      <div class="dots-top-left"></div>
       <div class="dots-bottom-left"></div>
 
       <!-- Layer 3: Flowers (superposed) -->
@@ -26,7 +26,8 @@ import Layout from '../../layouts/Layout.astro';
       <img src="/assets/antipode/flower-blue.svg" alt="" class="flower-blue" />
 
       <!-- Layer 4: Halftone squares (white dots) -->
-      <img src="/assets/anxiete/square-halftone.svg" alt="" class="square-left" />
+        <!-- Layer 4: Halftone squares (CSS-generated pink dots) -->
+        <div class="square-left" aria-hidden="true"></div>
       <img src="/assets/anxiete/square-halftone.svg" alt="" class="square-right" />
       <img src="/assets/anxiete/rectangle-blue-bar.png" alt="" class="blue-bar" />
 
@@ -510,13 +511,26 @@ import Layout from '../../layouts/Layout.astro';
   /* Square halftone left - behind title */
   .square-left {
     position: absolute;
-    top: 25%;
-    left: 8%;
-    width: 25%;
-    height: auto;
+    top: 14%;
+    left: -1%;
+    width: 42%;
+    height: 38%;
     aspect-ratio: 1;
     pointer-events: none;
     z-index: 1;
+    /* CSS halftone: small pink dots spaced out */
+    --dot-color: #EC008C;
+    --dot-gap: 14%;
+    --dot-size: 3px;
+    background-image: radial-gradient(
+      circle,
+      var(--dot-color) var(--dot-size),
+      transparent calc(var(--dot-size) + 1px)
+    );
+    background-size: var(--dot-gap) var(--dot-gap);
+    background-repeat: repeat;
+    background-position: 0 0;
+    background-color: transparent;
   }
 
   /* Square halftone right - top right corner */
