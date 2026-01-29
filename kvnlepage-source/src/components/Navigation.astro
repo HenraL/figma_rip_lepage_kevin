@@ -1,0 +1,85 @@
+---
+interface Props {
+  current?: string;
+}
+
+const { current } = Astro.props;
+---
+
+<nav class="nav-container">
+  <div class="nav-links">
+    <a href="/projets" class="nav-link" data-cursor-hover>
+      Projets
+    </a>
+    <a href="/about" class="nav-link" data-cursor-hover>
+      ABOUT
+    </a>
+    <a href="/contact" class="nav-link" data-cursor-hover>
+      CONTACT
+    </a>
+  </div>
+</nav>
+
+<style>
+  .nav-container {
+    position: fixed;
+    top: 49px;
+    right: 68px;
+    z-index: 50;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 80px;
+    align-items: center;
+  }
+
+  .nav-link {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 24px;
+    font-weight: 700;
+    color: #fff;
+    text-decoration: none;
+    position: relative;
+  }
+
+  .nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: #fff;
+    transition: width 0.3s ease;
+  }
+
+  .nav-link:hover::after {
+    width: 100%;
+  }
+
+  @media (max-width: 1024px) {
+    .nav-container {
+      right: 40px;
+    }
+
+    .nav-links {
+      gap: 50px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .nav-container {
+      top: 20px;
+      right: 20px;
+    }
+
+    .nav-links {
+      gap: 30px;
+    }
+
+    .nav-link {
+      font-size: 16px;
+    }
+  }
+</style>

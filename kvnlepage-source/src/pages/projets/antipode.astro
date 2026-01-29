@@ -1,0 +1,1025 @@
+---
+import Layout from '../../layouts/Layout.astro';
+---
+
+<Layout title="Antipode - L'espace entre les yeux" page="projets">
+  <!-- Loading/Transition Screen -->
+  <div id="loading-screen" class="loading-screen">
+    <div class="loading-content">
+      <h1 class="loading-title">L'ESPACE ENTRE LES YEUX</h1>
+      <div class="loading-bar">
+        <div class="loading-progress"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Content - Horizontal Scroll Container -->
+  <div id="horizontal-container" class="horizontal-container">
+    <!-- Section 1: Antipode 1 (Figma node 54:10, 1512x982px) -->
+    <section id="anxiete-1" class="section anxiete-1">
+      <!-- Layer 2: Dot patterns -->
+      <div class="dots-top-right"></div>
+      <div class="dots-bottom-left"></div>
+
+      <!-- Layer 3: Flowers (superposed) -->
+      <img src="/assets/anxiete/flower-outline.svg" alt="" class="flower-outline" />
+      <img src="/assets/antipode/flower-blue.svg" alt="" class="flower-blue" />
+
+      <!-- Layer 4: Halftone squares (white dots) -->
+      <img src="/assets/anxiete/square-halftone.svg" alt="" class="square-left" />
+      <img src="/assets/anxiete/square-halftone.svg" alt="" class="square-right" />
+      <img src="/assets/anxiete/rectangle-blue-bar.png" alt="" class="blue-bar" />
+
+      <!-- Layer 4b: Halftone ellipses (blue dots) - on top of squares -->
+      <img src="/assets/anxiete/ellipse-halftone-blue.svg" alt="" class="ellipse-blue-left" />
+      <img src="/assets/anxiete/ellipse-halftone-blue.svg" alt="" class="ellipse-blue-right" />
+
+      <!-- Layer 5: Bottom dots -->
+      <div class="dots-bottom"></div>
+
+      <!-- Layer 6: UI elements (high z-index) -->
+      <h1 class="page-title">ANTIPODE</h1>
+      <span class="number">02</span>
+      <div class="voir-plus-container">
+        <a href="#anxiete-2" class="voir-plus" data-cursor-hover>
+          Voir plus
+        </a>
+        <div class="voir-plus-line"></div>
+      </div>
+    </section>
+
+    <!-- Section 2: Antipode 2 (Figma node 55:84, 4630x982px) -->
+    <section id="anxiete-2" class="section anxiete-2">
+      <!-- Fait-main background - landscape, covering more area -->
+      <img src="/assets/anxiete/fait-main.webp" alt="" class="fait-main-bg" />
+
+      <!-- Ellipse halftone behind triangle -->
+      <img src="/assets/anxiete/ellipse-halftone.svg" alt="" class="ellipse-overlay" />
+
+      <!-- Gallery area with poster as background -->
+      <div class="gallery-area">
+        <img src="/assets/anxiete/gallery-frame.webp" alt="Affiche du projet En Miettes" class="gallery-bg" />
+        <p class="gallery-caption">Affiche du projet "L'espace entre les yeux"</p>
+      </div>
+
+      <!-- Vector background triangle -->
+      <img src="/assets/anxiete/vector-bg.svg" alt="" class="vector-bg" />
+
+      <!-- Title section with overlay -->
+      <div class="title-section">
+        <img src="/assets/anxiete/en-miette-outline.svg" alt="" class="title-outline" />
+        <img src="/assets/anxiete/en-miette-dots.svg" alt="" class="title-dots" />
+        <span class="big-number">01</span>
+      </div>
+
+      <!-- Project Description -->
+      <div class="project-description">
+        <!-- Blue square floating top-left -->
+        <img src="/assets/anxiete/square-halftone-blue.svg" alt="" class="square-blue-separator" />
+        <h2>Projet : Antipode - "L'espace entre les yeux"</h2>
+        <p class="subtitle">Thématique : Édition expérimentale et recherche chromatique sur les états de crise.</p>
+
+        <h3>1. L'Intention</h3>
+        <p>Au départ d'un mot imposé "L'espace entre les yeux", j'ai choisi d'explorer la fragmentation de l'identité face à l'Antipode. Ce projet est une immersion dans ma propre peau, transformant un ressenti impalpable en un objet éditorial physique. L'édition ne se contente pas de documenter l'Antipode : elle en devient la mémoire visuelle.</p>
+
+        <h3>2. La Narration Chromatique</h3>
+        <p>Pour traduire le déroulement temporel et psychologique d'une crise, j'ai instauré un système de dégradation chromatique et de perte d'opacité :</p>
+        <ul>
+          <li><strong>Le Rouge :</strong> L'intensité pure, l'urgence viscérale, le moment où le corps est saturé d'informations et de peur.</li>
+          <li><strong>La Transition :</strong> Une baisse progressive de l'opacité symbolisant la désintégration, l'effritement de l'esprit — la mise "en miettes" de la conscience.</li>
+          <li><strong>Le Blanc :</strong> L'épuisement final, le vide, ou le retour au calme par l'effacement total.</li>
+        </ul>
+
+        <h3>3. Esthétique et Mise en Page</h3>
+        <p>En m'appuyant sur des visuels à fort contraste et des textures de type halftones (trames de points), j'ai voulu créer un lien entre le grain de l'image et la fragilité du ressenti.</p>
+        <p class="quote"><span class="blue">«</span> Le texte devient image, l'image devient texture, et l'ensemble illustre la perte de repères. <span class="blue">»</span></p>
+      </div>
+
+      <!-- Book section - 3D interactive book -->
+      <div class="book-3d-section">
+        <div id="book-canvas-container" class="book-canvas-container">
+          <div class="book-click-zone book-click-prev" aria-label="Page précédente"></div>
+          <div class="book-click-zone book-click-next" aria-label="Page suivante"></div>
+        </div>
+        <span class="book-page-indicator">1 / 12</span>
+      </div>
+    </section>
+  </div>
+
+  <!-- Back button -->
+  <a href="/" class="back-button" data-cursor-hover>
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <path d="M19 12H5M12 19l-7-7 7-7"/>
+    </svg>
+  </a>
+
+  <!-- Scroll indicator -->
+  <div class="scroll-indicator">
+    <span>Scroll</span>
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <path d="M5 12h14M12 5l7 7-7 7"/>
+    </svg>
+  </div>
+</Layout>
+
+<script>
+  import gsap from 'gsap';
+  import { BookAnimation } from '../../lib/book-animation';
+
+  let bookAnimation: BookAnimation | null = null;
+
+  document.addEventListener('astro:page-load', () => {
+    const loadingScreen = document.getElementById('loading-screen');
+    const horizontalContainer = document.getElementById('horizontal-container');
+    const loadingProgress = document.querySelector('.loading-progress');
+    const loadingTitle = document.querySelector('.loading-title');
+
+    // Check if this is a View Transition navigation (not initial page load)
+    const isViewTransition = sessionStorage.getItem('anxiete-visited') === 'true';
+
+    if (isViewTransition && loadingScreen) {
+      // Skip loading animation on View Transition navigations
+      loadingScreen.style.display = 'none';
+      initHorizontalScroll();
+    } else {
+      // Mark as visited for future navigations
+      sessionStorage.setItem('anxiete-visited', 'true');
+
+      // Loading animation
+      gsap.to(loadingProgress, {
+        width: '100%',
+        duration: 1.5,
+        ease: 'power2.inOut'
+      });
+
+      gsap.to(loadingTitle, {
+        opacity: 1,
+        y: 0,
+        duration: 0.8,
+        ease: 'power3.out'
+      });
+
+      // After loading, reveal content
+      gsap.to(loadingScreen, {
+        opacity: 0,
+        duration: 0.5,
+        delay: 2,
+        onComplete: () => {
+          loadingScreen.style.display = 'none';
+          initHorizontalScroll();
+        }
+      });
+    }
+
+    function initHorizontalScroll() {
+      const container = horizontalContainer;
+      const sections = container.querySelectorAll('.section');
+
+      // Calculate total width - use scrollWidth for section 2 to get actual content width
+      const section1 = sections[0];
+      const section2 = sections[1];
+      const section2ContentWidth = section2?.scrollWidth || section2?.offsetWidth || 0;
+      const totalWidth = (section1?.offsetWidth || 0) + Math.max(section2ContentWidth, 3200);
+
+      container.style.width = `${totalWidth}px`;
+
+      // Restore scroll position from sessionStorage if available
+      const savedScroll = sessionStorage.getItem('anxiete-scroll-position');
+      let scrollLeft = savedScroll ? parseFloat(savedScroll) : 0;
+      const maxScroll = totalWidth - window.innerWidth;
+
+      // Clamp to valid range
+      scrollLeft = Math.max(0, Math.min(scrollLeft, maxScroll));
+
+      // Apply initial scroll position immediately
+      if (scrollLeft > 0) {
+        gsap.set(container, { x: -scrollLeft });
+
+        // Update scroll indicator visibility
+        const scrollIndicator = document.querySelector('.scroll-indicator');
+        if (scrollLeft > 100) {
+          scrollIndicator.style.opacity = '0';
+        }
+
+        // Hide dots if scrolled past section 1
+        const dotsBottomInit = document.querySelector('.dots-bottom');
+        if (dotsBottomInit && scrollLeft > 300) {
+          gsap.set(dotsBottomInit, { opacity: 0, visibility: 'hidden' });
+        }
+      }
+
+      const dotsBottom = document.querySelector('.dots-bottom');
+
+      window.addEventListener('wheel', (e) => {
+        e.preventDefault();
+        scrollLeft += e.deltaY;
+        scrollLeft = Math.max(0, Math.min(scrollLeft, maxScroll));
+
+        // Save scroll position to sessionStorage
+        sessionStorage.setItem('anxiete-scroll-position', scrollLeft.toString());
+
+        gsap.to(container, {
+          x: -scrollLeft,
+          duration: 0.5,
+          ease: 'power2.out'
+        });
+
+        const scrollIndicator = document.querySelector('.scroll-indicator');
+        if (scrollLeft > 100) {
+          scrollIndicator.style.opacity = '0';
+        } else {
+          scrollIndicator.style.opacity = '1';
+        }
+
+        // Hide dots when scrolling past section 1
+        if (dotsBottom) {
+          const dotsOpacity = Math.max(0, 1 - (scrollLeft / 300));
+          gsap.set(dotsBottom, { opacity: dotsOpacity });
+          if (dotsOpacity === 0) {
+            gsap.set(dotsBottom, { visibility: 'hidden' });
+          }
+        }
+      }, { passive: false });
+
+      const voirPlus = document.querySelector('.voir-plus');
+      voirPlus?.addEventListener('click', (e) => {
+        e.preventDefault();
+        const section2 = document.getElementById('anxiete-2');
+        scrollLeft = section2.offsetLeft;
+
+        // Save scroll position
+        sessionStorage.setItem('anxiete-scroll-position', scrollLeft.toString());
+
+        gsap.to(container, {
+          x: -scrollLeft,
+          duration: 1,
+          ease: 'power3.inOut'
+        });
+
+        // Hide dots when clicking "Voir plus"
+        if (dotsBottom) {
+          gsap.to(dotsBottom, { opacity: 0, visibility: 'hidden', duration: 0.5 });
+        }
+      });
+
+      // Clear scroll position when navigating away from the anxiete page
+      document.addEventListener('astro:before-swap', (e) => {
+        // Only clear if navigating to a different page (not the same page)
+        const newUrl = e.to?.url || window.location.href;
+        if (!newUrl.includes('/projets/anxiete')) {
+          sessionStorage.removeItem('anxiete-scroll-position');
+        }
+      }, { once: true });
+
+      // Animate elements
+      gsap.fromTo('.page-title', { opacity: 0, x: -50 }, { opacity: 1, x: 0, duration: 0.8, ease: 'power3.out', delay: 0.2 });
+      gsap.fromTo('.flower-blue', { opacity: 0, scale: 0.8 }, { opacity: 1, scale: 1, duration: 1, ease: 'power3.out', delay: 0.4 });
+      gsap.fromTo('.flower-outline', { opacity: 0 }, { opacity: 0.7, duration: 1, ease: 'power3.out', delay: 0.3 });
+      gsap.fromTo('.number', { opacity: 0 }, { opacity: 1, duration: 0.5, delay: 0.6 });
+      gsap.fromTo('.voir-plus-container', { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.5, delay: 0.8 });
+      gsap.fromTo('.dots-bottom', { opacity: 0, visibility: 'hidden' }, { opacity: 1, visibility: 'visible', duration: 0.8, ease: 'power3.out', delay: 0.5 });
+
+      // Initialize 3D book animation
+      initBookAnimation();
+    }
+
+    function initBookAnimation() {
+      const bookContainer = document.getElementById('book-canvas-container');
+      const pageIndicator = document.querySelector('.book-page-indicator');
+      const prevZone = document.querySelector('.book-click-prev');
+      const nextZone = document.querySelector('.book-click-next');
+
+      if (!bookContainer) return;
+
+      // Left cover (static, always visible on left side)
+      const leftCover = '/assets/anxiete/book-couv.webp';
+
+      // Flippable pages with front and back textures
+      // Book starts open: left shows leftCover, right shows first page front (book-couv-2)
+      const bookPages = [
+        { front: '/assets/anxiete/book-couv-2.webp', back: '/assets/anxiete/book-page-01.webp' },
+        { front: '/assets/anxiete/book-page-02.webp', back: '/assets/anxiete/book-page-03.webp' },
+        { front: '/assets/anxiete/book-page-04.webp', back: '/assets/anxiete/book-page-05.webp' },
+        { front: '/assets/anxiete/book-page-06.webp', back: '/assets/anxiete/book-page-07.webp' },
+        { front: '/assets/anxiete/book-page-08.webp', back: '/assets/anxiete/book-page-09.webp' },
+        { front: '/assets/anxiete/book-page-10.webp', back: '/assets/anxiete/book-page-11.webp' },
+        { front: '/assets/anxiete/book-page-12.webp', back: '/assets/anxiete/book-page-13.webp' },
+        { front: '/assets/anxiete/book-page-14.webp', back: '/assets/anxiete/book-page-15.webp' },
+        { front: '/assets/anxiete/book-page-16.webp', back: '/assets/anxiete/book-page-17.webp' },
+        { front: '/assets/anxiete/book-page-18.webp', back: '/assets/anxiete/book-page-19.webp' },
+        { front: '/assets/anxiete/book-page-20.webp', back: '/assets/anxiete/book-page-21.webp' },
+        { front: '/assets/anxiete/book-page-22.webp', back: '/assets/anxiete/book-page-23.webp' },
+      ];
+
+      // Destroy previous instance if exists (for View Transitions)
+      if (bookAnimation) {
+        bookAnimation.destroy();
+        bookAnimation = null;
+      }
+
+      bookAnimation = new BookAnimation({
+        container: bookContainer,
+        leftCover,
+        pages: bookPages,
+        onPageChange: (current, total) => {
+          if (pageIndicator) {
+            pageIndicator.textContent = `${current} / ${total}`;
+          }
+        }
+      });
+
+      // Click zone controls
+      prevZone?.addEventListener('click', () => {
+        bookAnimation?.prevPage();
+      });
+
+      nextZone?.addEventListener('click', () => {
+        bookAnimation?.nextPage();
+      });
+
+      // Keyboard controls
+      const handleKeydown = (e: KeyboardEvent) => {
+        if (e.key === 'ArrowLeft') {
+          bookAnimation?.prevPage();
+        } else if (e.key === 'ArrowRight') {
+          bookAnimation?.nextPage();
+        }
+      };
+
+      document.addEventListener('keydown', handleKeydown);
+
+      // Cleanup on page leave
+      document.addEventListener('astro:before-swap', () => {
+        document.removeEventListener('keydown', handleKeydown);
+        if (bookAnimation) {
+          bookAnimation.destroy();
+          bookAnimation = null;
+        }
+      }, { once: true });
+    }
+  });
+</script>
+
+<style>
+  /* Hide global dots-grid from three-background on this page */
+  :global(#dots-grid) {
+    display: none !important;
+  }
+
+  /* Loading Screen */
+  .loading-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #000;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .loading-content {
+    text-align: center;
+  }
+
+  .loading-title {
+    font-family: 'Field Gothic', 'Bebas Neue', sans-serif;
+    font-size: clamp(60px, 15vw, 200px);
+    font-weight: 400;
+    letter-spacing: 0.02em;
+    margin-bottom: 40px;
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  .loading-bar {
+    width: 300px;
+    height: 2px;
+    background: rgba(255, 255, 255, 0.2);
+    margin: 0 auto;
+  }
+
+  .loading-progress {
+    width: 0;
+    height: 100%;
+    background: #fff;
+  }
+
+  /* Horizontal Container */
+  .horizontal-container {
+    display: flex;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    background: #000;
+  }
+
+  .section {
+    height: 100vh;
+    flex-shrink: 0;
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* ==================== */
+  /* Antipode 1 - Figma positions (1512x982 frame) */
+  /* All positions converted to percentages */
+  /* ==================== */
+  .anxiete-1 {
+    width: 100vw;
+    background: #000;
+  }
+
+  /* Layer 1: Background face - x:2, y:-10, 1510x1208, opacity 12% */
+  .bg-visage {
+    position: absolute;
+    top: -1.02%;
+    left: 0.13%;
+    width: 99.87%;
+    height: auto;
+    max-height: 123%;
+    object-fit: cover;
+    opacity: 0.12;
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  /* Layer 2: Dot patterns */
+  /* Top-right dots - x:971.5, y:0, 320x320 */
+  .dots-top-right {
+    position: absolute;
+    top: 0;
+    left: 64.25%;
+    width: 21.16%;
+    height: 32.59%;
+    background-image: url('/assets/anxiete/dots-pattern.png');
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    pointer-events: none;
+    z-index: 2;
+  }
+
+  /* Bottom-left dots - x:0, y:320, 320x320 */
+  .dots-bottom-left {
+    position: absolute;
+    top: 32.59%;
+    left: 0;
+    width: 21.16%;
+    height: 32.59%;
+    background-image: url('/assets/anxiete/dots-pattern.png');
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    pointer-events: none;
+    z-index: 2;
+  }
+
+  /* Layer 3: Flowers */
+  /* Flower outline - positioned right of center, 1:1 aspect ratio */
+  .flower-outline {
+    position: absolute;
+    top: 50%;
+    left: 55%;
+    transform: translate(-50%, -50%);
+    width: 70vh;
+    height: 70vh;
+    object-fit: contain;
+    opacity: 0;
+    pointer-events: none;
+    z-index: 3;
+  }
+
+  /* Blue flower - same position, 1:1 aspect ratio, smaller than outline */
+  .flower-blue {
+    position: absolute;
+    top: 50%;
+    left: 55%;
+    transform: translate(-50%, -50%);
+    width: 48vh;
+    height: 48vh;
+    object-fit: contain;
+    opacity: 0;
+    pointer-events: none;
+    z-index: 4;
+  }
+
+  /* Layer 4: Halftone elements */
+  /* Square halftone left - behind title */
+  .square-left {
+    position: absolute;
+    top: 25%;
+    left: 8%;
+    width: 25%;
+    height: auto;
+    aspect-ratio: 1;
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  /* Square halftone right - top right corner */
+  .square-right {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 20%;
+    height: auto;
+    aspect-ratio: 1;
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  /* Ellipse blue halftone left - x:128, y:296, 133x133 */
+  .ellipse-blue-left {
+    position: absolute;
+    top: 30%;
+    left: 5%;
+    width: 18vh;
+    height: 18vh;
+    pointer-events: none;
+    z-index: 4;
+    isolation: isolate;
+  }
+
+  /* Ellipse blue halftone right - x:1419, y:269, 133x133 */
+  .ellipse-blue-right {
+    position: absolute;
+    top: 27%;
+    right: 0;
+    width: 18vh;
+    height: 18vh;
+    pointer-events: none;
+    z-index: 4;
+    isolation: isolate;
+  }
+
+  /* Blue halftone vertical bar - x:257, y:595, 50x417 */
+  .blue-bar {
+    position: absolute;
+    top: 60.59%;
+    left: 17%;
+    width: 3.31%;
+    height: 42.46%;
+    object-fit: contain;
+    pointer-events: none;
+    z-index: 5;
+  }
+
+  /* Layer 5: Bottom dots - x:10, y:900, 1220x128 */
+  .dots-bottom {
+    position: absolute;
+    bottom: -5%;
+    left: 0.66%;
+    width: 80.69%;
+    height: 13.03%;
+    background-image: url('/assets/anxiete/dots-pattern.png');
+    background-size: auto 100%;
+    background-repeat: repeat-x;
+    pointer-events: none;
+    z-index: 6;
+    opacity: 0;
+    visibility: hidden;
+  }
+
+  /* Layer 6: UI elements */
+  /* Title text - replaces SVG title image */
+  .page-title {
+    position: absolute;
+    top: 8.55%;
+    left: 8.47%;
+    width: 43.33%;
+    height: auto;
+    z-index: 10;
+    opacity: 0;
+    margin: 0;
+    font-family: 'Field Gothic', 'Bebas Neue', 'Anton', 'Impact', sans-serif;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.01em;
+    color: #fff;
+    line-height: 0.95;
+    white-space: nowrap;
+    font-size: clamp(80px, 12vw, 260px); /* taller and larger */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    pointer-events: none;
+  }
+
+  /* Number 01 - x:1133, y:678, 306x315 */
+  .number {
+    position: absolute;
+    top: 69.04%;
+    left: 74.93%;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: clamp(100px, 18vw, 274px);
+    font-weight: 700;
+    color: transparent;
+    -webkit-text-stroke: 2px rgba(255, 255, 255, 0.8);
+    text-stroke: 2px rgba(255, 255, 255, 0.8);
+    line-height: 1;
+    z-index: 10;
+    opacity: 0;
+  }
+
+  /* Voir plus - x:677, y:814, 157x57 + line x:830, y:843, 310x0 */
+  .voir-plus-container {
+    position: absolute;
+    top: 82.89%;
+    left: 44.77%;
+    display: flex;
+    align-items: center;
+    gap: 0;
+    z-index: 10;
+    opacity: 0;
+  }
+
+  .voir-plus {
+    background: #d9d9d9;
+    color: #000;
+    padding: 14px 28px;
+    border-radius: 25px;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+    text-decoration: none;
+    white-space: nowrap;
+    transition: transform 0.3s ease, background 0.3s ease;
+  }
+
+  .voir-plus:hover {
+    transform: scale(1.05);
+    background: #fff;
+  }
+
+  .voir-plus-line {
+    width: 310px;
+    height: 2px;
+    background: #fff;
+    margin-left: -5px;
+  }
+
+  /* ==================== */
+  /* Antipode 2 - Figma node 55:84, 4630x982px */
+  /* Gallery-frame as background element */
+  /* ==================== */
+  .anxiete-2 {
+    width: auto;
+    min-width: 3200px;
+    background: #000;
+    display: flex;
+    align-items: center;
+    padding: 0 100px;
+    gap: 80px;
+    position: relative;
+  }
+
+  /* Blue square floating top-right of text */
+  .square-blue-separator {
+    position: absolute;
+    top: -10vh;
+    right: -35vh;
+    width: 18vh;
+    height: 18vh;
+    z-index: 0;
+  }
+
+  /* Gallery area - poster as background with overlays */
+  .gallery-area {
+    flex-shrink: 0;
+    position: relative;
+    height: 85vh;
+    margin-left: -61px;
+    z-index: 2;
+  }
+
+  .gallery-bg {
+    height: 100%;
+    width: auto;
+    display: block;
+  }
+
+  .ellipse-overlay {
+    position: absolute;
+    bottom: -25%;
+    left: 10%;
+    width: 490px;
+    height: 490px;
+    opacity: 1;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .gallery-caption {
+    position: absolute;
+    bottom: 5%;
+    left: 50%;
+    transform: translateX(-50%);
+    font-style: italic;
+    font-size: 16px;
+    white-space: nowrap;
+    opacity: 0.8;
+  }
+
+  /* Vector background triangle */
+  .vector-bg {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100vh;
+    width: 100vh;
+    opacity: 1;
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  /* Title section with EN MIETTE + 01 overlays */
+  .title-section {
+    position: relative;
+    flex-shrink: 0;
+    width: 500px;
+    height: 70vh;
+  }
+
+  .title-outline {
+    position: absolute;
+    top: 10%;
+    left: 0;
+    width: 100%;
+    height: auto;
+  }
+
+  .title-fill {
+    position: absolute;
+    top: 18%;
+    left: -8%;
+    width: 100%;
+    height: auto;
+    opacity: 0.6;
+  }
+
+  .title-dots {
+    position: absolute;
+    top: 22%;
+    left: -5%;
+    width: 100%;
+    height: auto;
+    opacity: 0.8;
+  }
+
+  .big-number {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 364px;
+    font-weight: 700;
+    color: transparent;
+    -webkit-text-stroke: 2px #00e1ff;
+    text-stroke: 2px #00e1ff;
+    line-height: 1;
+  }
+
+  /* Project description */
+  .project-description {
+    position: relative;
+    flex-shrink: 0;
+    width: 600px;
+    padding: 40px 0;
+    margin-right: 200px;
+    z-index: 1;
+  }
+
+  .project-description h2 {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 20px;
+  }
+
+  .project-description .subtitle {
+    font-size: 14px;
+    margin-bottom: 30px;
+    opacity: 0.8;
+  }
+
+  .project-description h3 {
+    font-size: 18px;
+    font-weight: 700;
+    margin: 25px 0 15px;
+  }
+
+  .project-description p {
+    font-size: 14px;
+    line-height: 1.7;
+    margin-bottom: 15px;
+  }
+
+  .project-description ul {
+    list-style: disc;
+    margin-left: 20px;
+    margin-bottom: 15px;
+  }
+
+  .project-description li {
+    font-size: 14px;
+    line-height: 1.7;
+    margin-bottom: 12px;
+  }
+
+  .project-description .quote {
+    font-style: italic;
+    margin-top: 20px;
+  }
+
+  .project-description .blue {
+    color: #00e1ff;
+  }
+
+  /* Book section - 3D interactive book */
+  .book-3d-section {
+    flex-shrink: 0;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    width: 100vh;
+    margin-left: 300px;
+    margin-right: 150px;
+    z-index: 2;
+  }
+
+  .book-canvas-container {
+    width: 100%;
+    height: 80vh;
+    position: relative;
+    z-index: 3;
+  }
+
+  .book-canvas-container canvas {
+    display: block;
+  }
+
+  /* Invisible click zones for page navigation */
+  .book-click-zone {
+    position: absolute;
+    top: 0;
+    height: 100%;
+    width: 50%;
+    z-index: 10;
+  }
+
+  .book-click-prev {
+    left: 0;
+  }
+
+  .book-click-next {
+    right: 0;
+  }
+
+  .book-page-indicator {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 16px;
+    color: rgba(255, 255, 255, 0.8);
+    text-align: center;
+    margin-top: 20px;
+  }
+
+  /* Fait-main background - landscape, covering section 2 */
+  .fait-main-bg {
+    position: absolute;
+    top: 50%;
+    right: -1%;
+    height: 200%;
+    width: auto;
+    transform: translateY(-50%) rotate(90deg);
+    z-index: 0;
+    pointer-events: none;
+  }
+
+  /* Back Button */
+  .back-button {
+    position: fixed;
+    top: 40px;
+    left: 40px;
+    z-index: 100;
+    color: #fff;
+    padding: 10px;
+    transition: transform 0.3s ease;
+  }
+
+  .back-button:hover {
+    transform: translateX(-5px);
+  }
+
+  /* Scroll Indicator */
+  .scroll-indicator {
+    position: fixed;
+    bottom: 40px;
+    right: 40px;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 14px;
+    opacity: 1;
+    transition: opacity 0.3s ease;
+  }
+
+  /* ==================== */
+  /* Mobile Responsive */
+  /* ==================== */
+  @media (max-width: 768px) {
+    .anxiete-1 {
+      width: 100vw;
+    }
+
+    .page-title {
+      width: 60%;
+      top: 10%;
+      left: 5%;
+      font-size: clamp(48px, 12vw, 160px);
+    }
+
+    .flower-blue {
+      width: 60%;
+      left: 20%;
+    }
+
+    .flower-outline {
+      width: 70%;
+      left: 15%;
+    }
+
+    .number {
+      font-size: 80px;
+      left: auto;
+      right: 5%;
+    }
+
+    .voir-plus-container {
+      left: 10%;
+      top: 85%;
+    }
+
+    .voir-plus-line {
+      display: none;
+    }
+
+    .anxiete-2 {
+      width: 500vw;
+      padding: 0 30px;
+      gap: 50px;
+    }
+
+    .title-section {
+      width: 300px;
+    }
+
+    .big-number {
+      font-size: 150px;
+    }
+
+    .project-description {
+      width: 85vw;
+    }
+
+    .gallery-bg {
+      height: 60vh;
+    }
+
+    .book-3d-section {
+      width: 90vw;
+    }
+
+    .book-canvas-container {
+      height: 50vh;
+    }
+
+    .square-blue-separator {
+      width: 12vh;
+      height: 12vh;
+      top: -3vh;
+      right: -6vh;
+    }
+
+    .ellipse-overlay {
+      width: 150px;
+    }
+
+    .back-button {
+      top: 20px;
+      left: 20px;
+    }
+
+    .scroll-indicator {
+      bottom: 20px;
+      right: 20px;
+    }
+  }
+</style>

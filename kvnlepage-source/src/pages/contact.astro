@@ -1,0 +1,89 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navigation from '../components/Navigation.astro';
+import SocialLinks from '../components/SocialLinks.astro';
+
+const email = 'contact@kevinlepage.com';
+---
+
+<Layout title="Contact" page="contact">
+  <Navigation current="contact" />
+
+  <div class="contact-page">
+    <div class="contact-content">
+      <h1 data-animate="title">Contact</h1>
+
+      <div class="contact-email" data-animate="email">
+        <a href={`mailto:${email}`} data-cursor-hover>
+          {email}
+        </a>
+      </div>
+
+      <div class="contact-social" data-animate="social">
+        <SocialLinks />
+      </div>
+    </div>
+  </div>
+</Layout>
+
+<script>
+  import gsap from 'gsap';
+
+  document.addEventListener('astro:page-load', () => {
+    gsap.fromTo('[data-animate="title"]',
+      { opacity: 0, y: 50 },
+      { opacity: 1, y: 0, duration: 0.8, ease: 'power3.out' }
+    );
+
+    gsap.fromTo('[data-animate="email"]',
+      { opacity: 0, y: 30 },
+      { opacity: 1, y: 0, duration: 0.6, delay: 0.2, ease: 'power3.out' }
+    );
+
+    gsap.fromTo('[data-animate="social"]',
+      { opacity: 0 },
+      { opacity: 1, duration: 0.5, delay: 0.4 }
+    );
+  });
+</script>
+
+<style>
+  .contact-page {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 120px 80px 80px;
+  }
+
+  .contact-content {
+    text-align: center;
+  }
+
+  h1 {
+    font-size: 64px;
+    font-weight: 700;
+    margin-bottom: 60px;
+  }
+
+  .contact-email {
+    margin-bottom: 60px;
+  }
+
+  .contact-email a {
+    font-size: 32px;
+    color: #fff;
+    text-decoration: none;
+    border-bottom: 2px solid transparent;
+    transition: border-color 0.3s;
+  }
+
+  .contact-email a:hover {
+    border-color: #fff;
+  }
+
+  .contact-social {
+    display: flex;
+    justify-content: center;
+  }
+</style>

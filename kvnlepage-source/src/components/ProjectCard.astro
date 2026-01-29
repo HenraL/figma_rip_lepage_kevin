@@ -1,0 +1,101 @@
+---
+interface Props {
+  number: string;
+  title: string;
+  cover: string;
+  slug: string;
+}
+
+const { number, title, cover, slug } = Astro.props;
+---
+
+<article class="project-card" data-animate="project">
+  <div class="project-number">{number}</div>
+  <div class="project-image">
+    <img src={cover} alt={title} loading="lazy" />
+  </div>
+  <div class="project-info">
+    <h2>{title}</h2>
+    <a href={`/projets/${slug}`} class="btn-voir" data-cursor-hover>
+      Voir plus
+    </a>
+  </div>
+</article>
+
+<style>
+  .project-card {
+    display: grid;
+    grid-template-columns: auto 1fr 1fr;
+    gap: 40px;
+    align-items: center;
+    padding: 40px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .project-number {
+    font-size: clamp(80px, 15vw, 200px);
+    font-weight: 700;
+    opacity: 0.3;
+    line-height: 1;
+  }
+
+  .project-image {
+    position: relative;
+    overflow: hidden;
+    aspect-ratio: 16/9;
+    background: #111;
+  }
+
+  .project-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+  }
+
+  .project-card:hover .project-image img {
+    transform: scale(1.05);
+  }
+
+  .project-info {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .project-info h2 {
+    font-size: 32px;
+    font-weight: 700;
+  }
+
+  .btn-voir {
+    display: inline-block;
+    padding: 12px 24px;
+    border: 1px solid #fff;
+    color: #fff;
+    text-decoration: none;
+    font-size: 16px;
+    transition: background 0.3s, color 0.3s;
+    width: fit-content;
+  }
+
+  .btn-voir:hover {
+    background: #fff;
+    color: #000;
+  }
+
+@media (max-width: 768px) {
+  .project-card {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .project-number {
+    font-size: 60px;
+  }
+
+  .project-info h2 {
+    font-size: 24px;
+  }
+}
+</style>

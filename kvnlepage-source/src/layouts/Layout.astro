@@ -1,0 +1,167 @@
+---
+import { ViewTransitions } from 'astro:transitions';
+
+interface Props {
+  title: string;
+  page?: 'home' | 'projets' | 'about' | 'contact';
+}
+
+const { title, page = 'home' } = Astro.props;
+---
+
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Kevin Lepage - Designer" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+        <title>{title} | Kevin Lepage</title>
+    <style is:global>
+      @font-face {
+        font-family: 'Field Gothic';
+        src: url('/fonts/FieldGothic-No.62Regular.ttf') format('truetype');
+        font-weight: normal;
+        font-style: normal;
+        font-display: swap;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      html, body {
+        height: 100%;
+        overflow: hidden;
+      }
+
+      body {
+        font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+        background: #000;
+        color: #fff;
+      }
+    </style>
+    <ViewTransitions />
+  </head>
+  <body data-page={page}>
+    <canvas id="bg-canvas" transition:persist></canvas>
+    <div id="cursor" transition:persist></div>
+    <main>
+      <slot />
+    </main>
+    <script>
+      import { initBackground } from '../lib/three-background';
+      import { initCursor } from '../lib/cursor';
+
+      // Use astro:page-load for View Transitions compatibility
+      document.addEventListener('astro:page-load', () => {
+        initBackground();
+        initCursor();
+      });
+    </script>
+  </body>
+</html>
+
+<style>
+  #bg-canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+  }
+
+  main {
+    position: relative;
+    z-index: 1;
+    height: 100vh;
+  }
+
+  #cursor {
+    position: fixed;
+    width: 20px;
+    height: 20px;
+    border: 1px solid #fff;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9999;
+    transform: translate(-50%, -50%);
+    transition:
+      width 0.25s cubic-bezier(0.4, 0, 0.2, 1),
+      height 0.25s cubic-bezier(0.4, 0, 0.2, 1),
+      border-radius 0.25s cubic-bezier(0.4, 0, 0.2, 1),
+      background 0.2s ease,
+      border-color 0.2s ease,
+      transform 0.15s ease;
+  }
+
+  #cursor::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 14px;
+    font-weight: bold;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+  }
+
+  #cursor.hover {
+    width: 40px;
+    height: 40px;
+  }
+
+  /* Arrow states for book navigation */
+  #cursor.arrow-left,
+  #cursor.arrow-right {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.8);
+  }
+
+  #cursor.arrow-left::before,
+  #cursor.arrow-right::before {
+    opacity: 1;
+    font-family: system-ui, sans-serif;
+  }
+
+  #cursor.arrow-left::before {
+    content: '';
+    width: 0;
+    height: 0;
+    border-top: 6px solid transparent;
+    border-bottom: 6px solid transparent;
+    border-right: 10px solid #fff;
+    transform: translate(-60%, -50%);
+  }
+
+  #cursor.arrow-right::before {
+    content: '';
+    width: 0;
+    height: 0;
+    border-top: 6px solid transparent;
+    border-bottom: 6px solid transparent;
+    border-left: 10px solid #fff;
+    transform: translate(-40%, -50%);
+  }
+
+  /* Click state */
+  #cursor.clicking {
+    transform: translate(-50%, -50%) scale(0.85);
+  }
+
+  #cursor.arrow-left.clicking,
+  #cursor.arrow-right.clicking {
+    background: rgba(255, 255, 255, 0.25);
+    transform: translate(-50%, -50%) scale(0.9);
+  }
+</style>

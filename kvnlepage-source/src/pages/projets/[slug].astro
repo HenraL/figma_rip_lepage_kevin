@@ -1,0 +1,161 @@
+---
+import { getCollection, type CollectionEntry } from 'astro:content';
+import Layout from '../../layouts/Layout.astro';
+import Navigation from '../../components/Navigation.astro';
+
+export async function getStaticPaths() {
+  const projets = await getCollection('projets');
+  return projets.map((projet) => ({
+    params: { slug: projet.slug },
+    props: { projet },
+  }));
+}
+
+interface Props {
+  projet: CollectionEntry<'projets'>;
+}
+
+const { projet } = Astro.props;
+const { Content } = await projet.render();
+
+// Get next/prev projects
+const allProjets = await getCollection('projets');
+const sorted = allProjets.sort((a, b) => a.data.number.localeCompare(b.data.number));
+const currentIndex = sorted.findIndex((p) => p.slug === projet.slug);
+const prevProjet = sorted[currentIndex - 1];
+const nextProjet = sorted[currentIndex + 1];
+---
+
+<Layout title={projet.data.title} page="projets">
+  <Navigation current="projets" />
+
+  <article class="projet-detail">
+    <header class="projet-header">
+      <span class="projet-number">{projet.data.number}</span>
+      <h1>{projet.data.title}</h1>
+      <span class="projet-date">{projet.data.date}</span>
+    </header>
+
+    <div class="projet-cover">
+      <img src={projet.data.cover} alt={projet.data.title} />
+    </div>
+
+    <div class="projet-content">
+      <Content />
+    </div>
+
+    <nav class="projet-nav">
+      {prevProjet && (
+        <a href={`/projets/${prevProjet.slug}`} class="nav-prev" data-cursor-hover>
+          ← {prevProjet.data.title}
+        </a>
+      )}
+      {nextProjet && (
+        <a href={`/projets/${nextProjet.slug}`} class="nav-next" data-cursor-hover>
+          {nextProjet.data.title} →
+        </a>
+      )}
+    </nav>
+  </article>
+</Layout>
+
+<script>
+  import gsap from 'gsap';
+
+  document.addEventListener('astro:page-load', () => {
+    gsap.fromTo('.projet-header > *',
+      { opacity: 0, y: 30 },
+      { opacity: 1, y: 0, duration: 0.6, stagger: 0.1, ease: 'power3.out' }
+    );
+
+    gsap.fromTo('.projet-cover',
+      { opacity: 0, scale: 0.95 },
+      { opacity: 1, scale: 1, duration: 0.8, delay: 0.3, ease: 'power3.out' }
+    );
+
+    gsap.fromTo('.projet-content',
+      { opacity: 0 },
+      { opacity: 1, duration: 0.6, delay: 0.5 }
+    );
+  });
+</script>
+
+<style>
+  .projet-detail {
+    min-height: 100vh;
+    padding: 120px 80px 80px;
+    overflow-y: auto;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .projet-header {
+    text-align: center;
+    margin-bottom: 60px;
+  }
+
+  .projet-number {
+    font-size: 100px;
+    font-weight: 700;
+    opacity: 0.2;
+    display: block;
+  }
+
+  .projet-header h1 {
+    font-size: 48px;
+    font-weight: 700;
+    margin: 20px 0;
+  }
+
+  .projet-date {
+    font-size: 18px;
+    opacity: 0.6;
+  }
+
+  .projet-cover {
+    margin-bottom: 60px;
+    background: #111;
+  }
+
+  .projet-cover img {
+    width: 100%;
+    height: auto;
+  }
+
+  .projet-content {
+    font-size: 18px;
+    line-height: 1.8;
+  }
+
+  .projet-content :global(h2) {
+    font-size: 28px;
+    margin: 40px 0 20px;
+  }
+
+  .projet-content :global(p) {
+    margin-bottom: 20px;
+  }
+
+  .projet-nav {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 80px;
+    padding-top: 40px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .projet-nav a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 18px;
+    transition: opacity 0.3s;
+  }
+
+  .projet-nav a:hover {
+    opacity: 0.7;
+  }
+
+  .nav-next {
+    margin-left: auto;
+  }
+</style>

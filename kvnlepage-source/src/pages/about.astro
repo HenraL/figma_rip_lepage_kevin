@@ -1,0 +1,122 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navigation from '../components/Navigation.astro';
+---
+
+<Layout title="About" page="about">
+  <Navigation current="about" />
+
+  <div class="about-page">
+    <div class="about-content">
+      <h1 data-animate="title">À propos</h1>
+
+      <div class="about-text" data-animate="text">
+        <p>
+          Kevin Lepage est un designer basé en France, spécialisé dans la création
+          d'identités visuelles et d'expériences numériques uniques.
+        </p>
+        <p>
+          Avec une approche minimaliste et une attention particulière aux détails,
+          il crée des designs qui marquent les esprits.
+        </p>
+      </div>
+
+      <div class="skills" data-animate="skills">
+        <h2>Compétences</h2>
+        <ul>
+          <li>Direction artistique</li>
+          <li>Identité visuelle</li>
+          <li>Design UI/UX</li>
+          <li>Motion design</li>
+          <li>Illustration</li>
+        </ul>
+      </div>
+
+      <div class="tools" data-animate="tools">
+        <h2>Outils</h2>
+        <ul>
+          <li>Figma</li>
+          <li>Adobe Creative Suite</li>
+          <li>Blender</li>
+          <li>After Effects</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</Layout>
+
+<script>
+  import gsap from 'gsap';
+
+  document.addEventListener('astro:page-load', () => {
+    gsap.fromTo('[data-animate="title"]',
+      { opacity: 0, y: 50 },
+      { opacity: 1, y: 0, duration: 0.8, ease: 'power3.out' }
+    );
+
+    gsap.fromTo('[data-animate="text"]',
+      { opacity: 0, y: 30 },
+      { opacity: 1, y: 0, duration: 0.6, delay: 0.2, ease: 'power3.out' }
+    );
+
+    gsap.fromTo('[data-animate="skills"], [data-animate="tools"]',
+      { opacity: 0, y: 30 },
+      { opacity: 1, y: 0, duration: 0.6, delay: 0.4, stagger: 0.2, ease: 'power3.out' }
+    );
+  });
+</script>
+
+<style>
+  .about-page {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 120px 80px 80px;
+    overflow-y: auto;
+  }
+
+  .about-content {
+    max-width: 800px;
+  }
+
+  h1 {
+    font-size: 64px;
+    font-weight: 700;
+    margin-bottom: 40px;
+  }
+
+  .about-text {
+    font-size: 24px;
+    line-height: 1.6;
+    margin-bottom: 60px;
+  }
+
+  .about-text p {
+    margin-bottom: 20px;
+  }
+
+  .skills, .tools {
+    margin-bottom: 40px;
+  }
+
+  h2 {
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    opacity: 0.6;
+  }
+
+  ul {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+
+  li {
+    padding: 8px 16px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    font-size: 16px;
+  }
+</style>
