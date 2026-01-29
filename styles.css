@@ -1,0 +1,82 @@
+body {
+  font-family: 'Roboto Condensed', 'Arial Narrow', Arial, sans-serif;
+}
+
+/* Font-stretch examples using keywords */
+.ultra-condensed {
+  font-stretch: ultra-condensed;
+}
+
+.extra-condensed {
+  font-stretch: extra-condensed;
+}
+
+.condensed {
+  font-stretch: condensed;
+}
+
+.semi-condensed {
+  font-stretch: semi-condensed;
+}
+
+.normal-stretch {
+  font-stretch: normal;
+}
+
+.semi-expanded {
+  font-stretch: semi-expanded;
+}
+
+.expanded {
+  font-stretch: expanded;
+}
+
+.extra-expanded {
+  font-stretch: extra-expanded;
+}
+
+.ultra-expanded {
+  font-stretch: ultra-expanded;
+}
+
+/* Transform scaleX examples for stretching */
+.scale-narrow {
+  transform: scaleX(0.5);
+}
+
+.scale-semi-narrow {
+  transform: scaleX(0.8);
+}
+
+.scale-semi-wide {
+  transform: scaleX(1.2);
+}
+
+.scale-wide {
+  transform: scaleX(1.5);
+}
+
+.scale-very-wide {
+  transform: scaleX(2);
+}
+
+/* Font-variation-settings examples (for variable fonts like Roboto) */
+.wdth-50 {
+  font-variation-settings: 'wdth' 50;
+}
+
+.wdth-75 {
+  font-variation-settings: 'wdth' 75;
+}
+
+.wdth-100 {
+  font-variation-settings: 'wdth' 100;
+}
+
+.wdth-125 {
+  font-variation-settings: 'wdth' 125;
+}
+
+.wdth-150 {
+  font-variation-settings: 'wdth' 150;
+}
