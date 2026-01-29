@@ -6,12 +6,41 @@
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
     <title>Hello world</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
-    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel='stylesheet' type='text/css' media='screen' href='styles.css'>
     <script src='main.js'></script>
 </head>
 
 <body>
-    <p>Hello world !</p>
+    <h1>Font Stretching Examples</h1>
+
+    <h2>font-stretch (keyword-based)</h2>
+    <p class="ultra-condensed">Hello world! (ultra-condensed)</p>
+    <p class="extra-condensed">Hello world! (extra-condensed)</p>
+    <p class="condensed">Hello world! (condensed)</p>
+    <p class="semi-condensed">Hello world! (semi-condensed)</p>
+    <p class="normal-stretch">Hello world! (normal)</p>
+    <p class="semi-expanded">Hello world! (semi-expanded)</p>
+    <p class="expanded">Hello world! (expanded)</p>
+    <p class="extra-expanded">Hello world! (extra-expanded)</p>
+    <p class="ultra-expanded">Hello world! (ultra-expanded)</p>
+
+    <h2>transform: scaleX() (scaling-based)</h2>
+    <p class="scale-narrow">Hello world! (scaleX(0.5) - very narrow)</p>
+    <p class="scale-semi-narrow">Hello world! (scaleX(0.8) - semi-narrow)</p>
+    <p class="normal-stretch">Hello world! (scaleX(1) - normal)</p>
+    <p class="scale-semi-wide">Hello world! (scaleX(1.2) - semi-wide)</p>
+    <p class="scale-wide">Hello world! (scaleX(1.5) - wide)</p>
+    <p class="scale-very-wide">Hello world! (scaleX(2) - very wide)</p>
+
+    <h2>font-variation-settings 'wdth' (variable font width)</h2>
+    <p class="wdth-50">Hello world! (wdth 50 - very condensed)</p>
+    <p class="wdth-75">Hello world! (wdth 75 - condensed)</p>
+    <p class="wdth-100">Hello world! (wdth 100 - normal)</p>
+    <p class="wdth-125">Hello world! (wdth 125 - expanded)</p>
+    <p class="wdth-150">Hello world! (wdth 150 - very expanded)</p>
 </body>
 
 </html>
