@@ -20,7 +20,7 @@ import Layout from '../../layouts/Layout.astro';
       <!-- Layer 2: Dot patterns -->
       <div class="dots-left"></div>
       <div class="dots-bottom"></div>
-      <div class="bar-bottom-right"></div>
+      <div class="pink-bar"></div>
 
       <!-- Layer 3: Flowers (superposed) -->
       <img src="/assets/anxiete/flower-outline.svg" alt="" class="flower-outline" />
@@ -428,49 +428,6 @@ import Layout from '../../layouts/Layout.astro';
     background: #000;
   }
 
-  /* Layer 1: Background face - x:2, y:-10, 1510x1208, opacity 12% */
-  .bg-visage {
-    position: absolute;
-    top: -1.02%;
-    left: 0.13%;
-    width: 99.87%;
-    height: auto;
-    max-height: 123%;
-    object-fit: cover;
-    opacity: 0.12;
-    pointer-events: none;
-    z-index: 1;
-  }
-
-  /* Layer 2: Dot patterns */
-  /* Top-right dots - x:971.5, y:0, 320x320 */
-  .dots-top-right {
-    position: absolute;
-    top: 0;
-    left: 64.25%;
-    width: 21.16%;
-    height: 32.59%;
-    background-image: url('/assets/anxiete/dots-pattern.png');
-    background-size: 100% 100%;
-    background-repeat: no-repeat;
-    pointer-events: none;
-    z-index: 2;
-  }
-
-  /* Bottom-left dots - x:0, y:320, 320x320 */
-  .dots-bottom-left {
-    position: absolute;
-    top: 32.59%;
-    left: 0;
-    width: 21.16%;
-    height: 32.59%;
-    background-image: url('/assets/anxiete/dots-pattern.png');
-    background-size: 100% 100%;
-    background-repeat: no-repeat;
-    pointer-events: none;
-    z-index: 2;
-  }
-
   /* Layer 3: Flowers */
   .flower-outline {
     position: absolute;
@@ -499,52 +456,29 @@ import Layout from '../../layouts/Layout.astro';
   }
 
   /* Layer 4: Halftone elements */
-  /* Square halftone left - behind title */
   .square-left {
     position: absolute;
     top: 14%;
-    left: -1%;
-    width: 42%;
-    height: 38%;
+    left: 1%;
+    width: 30%;
+    height: 40%;
     aspect-ratio: 1;
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 11 9' preserveAspectRatio='none'%3E%3Cdefs%3E%3Cpattern id='p' patternUnits='objectBoundingBox' width='0.10' height='0.12'%3E%3Ccircle cx='0.15' cy='0.15' r='0.075' fill='deeppink'/%3E%3C/pattern%3E%3C/defs%3E%3Crect width='11' height='10' fill='url(%23p)'/%3E%3C/svg%3E")
+      no-repeat;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
     pointer-events: none;
-    z-index: 1;
-    /* CSS halftone: small pink dots spaced out */
-    --dot-color: #EC008C;
-    --dot-gap: 14%;
-    --dot-size: 3px;
-    background-image: radial-gradient(
-      circle,
-      var(--dot-color) var(--dot-size),
-      transparent calc(var(--dot-size) + 1px)
-    );
-    background-size: var(--dot-gap) var(--dot-gap);
-    background-repeat: repeat;
-    background-position: 0 0;
-    background-color: transparent;
+    z-index: 2;
   }
-
-  /* Square halftone right - top right corner */
-  .square-right {
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 20%;
-    height: auto;
-    aspect-ratio: 1;
-    pointer-events: none;
-    z-index: 1;
-  }
-
 
   .ellipse-white-left {
     position: absolute;
-    top: 40%;
-    left: 13%;
+    top: 38%;
+    left: 11%;
     width: 15%;
     height: 15%;
     pointer-events: none;
-    z-index: 4;
+    z-index: 3;
     background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100' preserveAspectRatio='xMidYMid meet'%3E%3Cdefs%3E%3Cpattern id='p-ellipse' patternUnits='userSpaceOnUse' width='3' height='3'%3E%3Ccircle cx='1.5' cy='1.5' r='1' fill='white'/%3E%3C/pattern%3E%3Cmask id='ellipse-mask'%3E%3Cellipse cx='50' cy='50' rx='48' ry='48' fill='white'/%3E%3C/mask%3E%3C/defs%3E%3Crect width='100' height='100' fill='url(%23p-ellipse)' mask='url(%23ellipse-mask)'/%3E%3C/svg%3E")
       no-repeat;
     background-size: 100% 100%;
@@ -558,11 +492,22 @@ import Layout from '../../layouts/Layout.astro';
     width: 15%;
     height: 15%;
     pointer-events: none;
-    z-index: 4;
+    z-index: 3;
     background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100' preserveAspectRatio='xMidYMid meet'%3E%3Cdefs%3E%3Cpattern id='p-ellipse' patternUnits='userSpaceOnUse' width='3' height='3'%3E%3Ccircle cx='1.5' cy='1.5' r='1' fill='deeppink'/%3E%3C/pattern%3E%3Cmask id='ellipse-mask'%3E%3Cellipse cx='50' cy='50' rx='48' ry='48' fill='white'/%3E%3C/mask%3E%3C/defs%3E%3Crect width='100' height='100' fill='url(%23p-ellipse)' mask='url(%23ellipse-mask)'/%3E%3C/svg%3E")
       no-repeat;
     background-size: 100% 100%;
     transform: translate(-50%, -50%);
+  }
+
+  .pink-bar {
+    position: absolute;
+    top: 64%;
+    right: 0%;
+    width: 30%;
+    height: 16%;
+    pointer-events: none;
+    z-index: 3;
+    background-color: deeppink;
   }
 
   .dots-bottom {
