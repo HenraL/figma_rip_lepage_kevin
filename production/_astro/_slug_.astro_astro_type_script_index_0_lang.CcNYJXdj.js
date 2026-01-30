@@ -1,0 +1,1 @@
+import{g as o}from"./index.CB87Sc6I.js";document.addEventListener("astro:page-load",()=>{o.fromTo(".projet-header > *",{opacity:0,y:30},{opacity:1,y:0,duration:.6,stagger:.1,ease:"power3.out"}),o.fromTo(".projet-cover",{opacity:0,scale:.95},{opacity:1,scale:1,duration:.8,delay:.3,ease:"power3.out"}),o.fromTo(".projet-content",{opacity:0},{opacity:1,duration:.6,delay:.5})});

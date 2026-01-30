@@ -1,0 +1,49 @@
+<svg preserveAspectRatio="none" width="100%" height="100%" overflow="visible" style="display: block;" viewBox="0 0 504 243" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="Calque_1" clip-path="url(#clip0_0_4)">
+<path id="Vector" d="M0 0H43.4444V22.6306H26.6353V108.854H43.6036V131.326H26.6353V220.369H43.4444V243H0V0Z" fill="url(#pattern0_0_4)"/>
+<path id="Vector_2" d="M49.4265 0H89.7092L98.3753 150.135L102.037 218.709H103.379L102.219 150.135L102.06 0H123.191V243H82.9082L74.2421 92.8649L70.58 24.2909H69.238L70.3981 92.8649L70.5573 243H49.4265V0Z" fill="url(#pattern2_0_4)"/>
+<path id="Vector_3" d="M148.984 0H190.928L197.41 140.469L199.252 212.705H200.094L201.936 140.469L208.396 0H250.339V243H228.208V29.4539H227.048L224.045 93.8657L215.561 243H183.763L175.278 93.8657L172.276 29.4539H171.116V243H148.984V0Z" fill="url(#pattern4_0_4)"/>
+<path id="Vector_4" d="M257.004 0H283.639V243H257.004V0Z" fill="url(#pattern6_0_4)"/>
+<path id="Vector_5" d="M290.281 0H333.725V22.6306H316.916V108.854H333.885V131.326H316.916V220.369H333.725V243H290.281V0Z" fill="url(#pattern8_0_4)"/>
+<path id="Vector_6" d="M353.037 22.6306H338.047V0H394.479V22.6306H379.672V243H353.037V22.6306Z" fill="url(#pattern10_0_4)"/>
+<path id="Vector_7" d="M414.791 22.6306H399.802V0H456.234V22.6306H441.426V243H414.791V22.6306Z" fill="url(#pattern12_0_4)"/>
+<path id="Vector_8" d="M460.396 0H503.841V22.6306H487.032V108.854H504V131.326H487.032V220.369H503.841V243H460.396V0Z" fill="url(#pattern14_0_4)"/>
+</g>
+<defs>
+<clipPath id="clip0_0_4">
+<rect width="504" height="243" fill="white"/>
+</clipPath>
+<pattern id="pattern0_0_4" patternUnits="userSpaceOnUse" patternTransform="matrix(10.64 0 0 10.64 0 0)" preserveAspectRatio="none" viewBox="0 0 21.28 21.28" width="1" height="1">
+<g id="pattern0_0_4_inner">
+<path id="Ellipse 13" d="M7 3.5C7 5.433 5.433 7 3.5 7C1.567 7 0 5.433 0 3.5C0 1.567 1.567 0 3.5 0C5.433 0 7 1.567 7 3.5Z"/>
+</g>
+</pattern><pattern id="pattern2_0_4" patternUnits="userSpaceOnUse" patternTransform="matrix(10.64 0 0 10.64 49.4265 0)" preserveAspectRatio="none" viewBox="0 0 21.28 21.28" width="1" height="1">
+<g id="pattern2_0_4_inner">
+<path id="Ellipse 13" d="M7 3.5C7 5.433 5.433 7 3.5 7C1.567 7 0 5.433 0 3.5C0 1.567 1.567 0 3.5 0C5.433 0 7 1.567 7 3.5Z"/>
+</g>
+</pattern><pattern id="pattern4_0_4" patternUnits="userSpaceOnUse" patternTransform="matrix(10.64 0 0 10.64 148.984 0)" preserveAspectRatio="none" viewBox="0 0 21.28 21.28" width="1" height="1">
+<g id="pattern4_0_4_inner">
+<path id="Ellipse 13" d="M7 3.5C7 5.433 5.433 7 3.5 7C1.567 7 0 5.433 0 3.5C0 1.567 1.567 0 3.5 0C5.433 0 7 1.567 7 3.5Z"/>
+</g>
+</pattern><pattern id="pattern6_0_4" patternUnits="userSpaceOnUse" patternTransform="matrix(10.64 0 0 10.64 257.004 0)" preserveAspectRatio="none" viewBox="0 0 21.28 21.28" width="1" height="1">
+<g id="pattern6_0_4_inner">
+<path id="Ellipse 13" d="M7 3.5C7 5.433 5.433 7 3.5 7C1.567 7 0 5.433 0 3.5C0 1.567 1.567 0 3.5 0C5.433 0 7 1.567 7 3.5Z"/>
+</g>
+</pattern><pattern id="pattern8_0_4" patternUnits="userSpaceOnUse" patternTransform="matrix(10.64 0 0 10.64 290.281 0)" preserveAspectRatio="none" viewBox="0 0 21.28 21.28" width="1" height="1">
+<g id="pattern8_0_4_inner">
+<path id="Ellipse 13" d="M7 3.5C7 5.433 5.433 7 3.5 7C1.567 7 0 5.433 0 3.5C0 1.567 1.567 0 3.5 0C5.433 0 7 1.567 7 3.5Z"/>
+</g>
+</pattern><pattern id="pattern10_0_4" patternUnits="userSpaceOnUse" patternTransform="matrix(10.64 0 0 10.64 338.047 0)" preserveAspectRatio="none" viewBox="0 0 21.28 21.28" width="1" height="1">
+<g id="pattern10_0_4_inner">
+<path id="Ellipse 13" d="M7 3.5C7 5.433 5.433 7 3.5 7C1.567 7 0 5.433 0 3.5C0 1.567 1.567 0 3.5 0C5.433 0 7 1.567 7 3.5Z"/>
+</g>
+</pattern><pattern id="pattern12_0_4" patternUnits="userSpaceOnUse" patternTransform="matrix(10.64 0 0 10.64 399.802 0)" preserveAspectRatio="none" viewBox="0 0 21.28 21.28" width="1" height="1">
+<g id="pattern12_0_4_inner">
+<path id="Ellipse 13" d="M7 3.5C7 5.433 5.433 7 3.5 7C1.567 7 0 5.433 0 3.5C0 1.567 1.567 0 3.5 0C5.433 0 7 1.567 7 3.5Z"/>
+</g>
+</pattern><pattern id="pattern14_0_4" patternUnits="userSpaceOnUse" patternTransform="matrix(10.64 0 0 10.64 460.396 0)" preserveAspectRatio="none" viewBox="0 0 21.28 21.28" width="1" height="1">
+<g id="pattern14_0_4_inner">
+<path id="Ellipse 13" d="M7 3.5C7 5.433 5.433 7 3.5 7C1.567 7 0 5.433 0 3.5C0 1.567 1.567 0 3.5 0C5.433 0 7 1.567 7 3.5Z"/>
+</g>
+</pattern></defs>
+</svg>

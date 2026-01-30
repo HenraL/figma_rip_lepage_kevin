@@ -1,0 +1,1 @@
+import{g as a}from"./index.CB87Sc6I.js";document.addEventListener("astro:page-load",()=>{a.fromTo('[data-animate="title"]',{opacity:0,y:50},{opacity:1,y:0,duration:.8,ease:"power3.out"}),a.fromTo('[data-animate="email"]',{opacity:0,y:30},{opacity:1,y:0,duration:.6,delay:.2,ease:"power3.out"}),a.fromTo('[data-animate="social"]',{opacity:0},{opacity:1,duration:.5,delay:.4})});
