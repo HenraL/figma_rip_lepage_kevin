@@ -1,6 +1,9 @@
 /*six-caps*/
 @import url('https://fonts.googleapis.com/css2?family=Six+Caps');
 
+/* Helvetica */
+@import url("./fonts/style.css");
+
 .six-caps-regular {
     font-family: "Six Caps", sans-serif;
     font-weight: 900;
