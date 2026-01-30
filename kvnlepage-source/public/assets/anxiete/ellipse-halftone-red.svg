@@ -1,9 +1,0 @@
-<svg width="133" height="133" viewBox="0 0 133 133" xmlns="http://www.w3.org/2000/svg">
-  <defs>
-    <pattern id="redDots" patternUnits="userSpaceOnUse" width="7" height="7">
-      <circle cx="3.5" cy="3.5" r="2" fill="#FF0000"/>
-    </pattern>
-  </defs>
-  <circle cx="66.5" cy="66.5" r="66" fill="black" fill-opacity="0.5"/>
-  <circle cx="66.5" cy="66.5" r="66" fill="url(#redDots)"/>
-</svg>
