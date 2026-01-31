@@ -35,7 +35,7 @@ import Layout from '../../layouts/Layout.astro';
       <div class="ellipse-red-right" />
 
       <!-- Layer 6: UI elements (high z-index) -->
-      <img src="/assets/anxiete/en-miette-title.svg" alt="EN MIETTE" class="title-img" />
+      <h1 class="page-title">EN MIETTE</h1>
       <span class="number">01</span>
       <div class="voir-plus-container">
         <a href="#anxiete-2" class="voir-plus" data-cursor-hover>
@@ -269,7 +269,7 @@ import Layout from '../../layouts/Layout.astro';
       }, { once: true });
 
       // Animate elements
-      gsap.fromTo('.title-img', { opacity: 0, x: -50 }, { opacity: 1, x: 0, duration: 0.8, ease: 'power3.out', delay: 0.2 });
+      gsap.fromTo('.page-title', { opacity: 0, x: -50 }, { opacity: 1, x: 0, duration: 0.8, ease: 'power3.out', delay: 0.2 });
       gsap.fromTo('.flower-red', { opacity: 0, scale: 0.8 }, { opacity: 1, scale: 1, duration: 1, ease: 'power3.out', delay: 0.4 });
       gsap.fromTo('.flower-outline', { opacity: 0 }, { opacity: 0.7, duration: 1, ease: 'power3.out', delay: 0.3 });
       gsap.fromTo('.number', { opacity: 0 }, { opacity: 1, duration: 0.5, delay: 0.6 });
@@ -555,15 +555,26 @@ import Layout from '../../layouts/Layout.astro';
   }
 
   /* Layer 6: UI elements */
-  /* Title EN MIETTE - x:128, y:84, 504x243 */
-  .title-img {
+  .page-title {
     position: absolute;
-    top: 8.55%;
-    left: 8.47%;
-    width: 33.33%;
-    height: auto;
+    top: 2%;
+    left: 8%;
     z-index: 10;
     opacity: 0;
+    margin: 0;
+    font-family: 'Bebas Neue', sans-serif;
+    font-stretch: condensed;
+    letter-spacing: 0.01em;
+    transform: scaleX(0.45) translateZ(0);
+    transform-origin: left;
+    will-change: transform;
+    text-transform: uppercase;
+    color: #fff;
+    font-size: clamp(100px, 20vw, 400px);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    pointer-events: none;
   }
 
   /* Number 01 - x:1133, y:678, 306x315 */
@@ -895,12 +906,6 @@ import Layout from '../../layouts/Layout.astro';
   @media (max-width: 768px) {
     .anxiete-1 {
       width: 100vw;
-    }
-
-    .title-img {
-      width: 60%;
-      top: 10%;
-      left: 5%;
     }
 
     .flower-red {

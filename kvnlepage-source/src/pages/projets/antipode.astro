@@ -458,8 +458,8 @@ import Layout from '../../layouts/Layout.astro';
   /* Layer 4: Halftone elements */
   .square-left {
     position: absolute;
-    top: 14%;
-    left: 1%;
+    top: 20%;
+    left: 0.5%;
     width: 30%;
     height: 40%;
     aspect-ratio: 1;
@@ -473,7 +473,7 @@ import Layout from '../../layouts/Layout.astro';
 
   .ellipse-white-left {
     position: absolute;
-    top: 38%;
+    top: 40%;
     left: 11%;
     width: 15%;
     height: 15%;
@@ -523,24 +523,22 @@ import Layout from '../../layouts/Layout.astro';
   }
 
   /* Layer 6: UI elements */
-  /* Title text - replaces SVG title image */
   .page-title {
     position: absolute;
-    top: 8.55%;
-    left: 8.47%;
-    width: 43.33%;
-    height: auto;
+    top: 2%;
+    left: 10%;
     z-index: 10;
     opacity: 0;
     margin: 0;
-    font-family: 'Field Gothic', 'Bebas Neue', 'Anton', 'Impact', sans-serif;
-    font-weight: 800;
-    text-transform: uppercase;
+    font-family: 'Bebas Neue', sans-serif;
+    font-stretch: condensed;
     letter-spacing: 0.01em;
+    transform: scaleX(0.45) translateZ(0);
+    transform-origin: left;
+    will-change: transform;
+    text-transform: uppercase;
     color: #fff;
-    line-height: 0.95;
-    white-space: nowrap;
-    font-size: clamp(80px, 12vw, 260px); /* taller and larger */
+    font-size: clamp(100px, 20vw, 400px);
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-rendering: optimizeLegibility;
@@ -876,13 +874,6 @@ import Layout from '../../layouts/Layout.astro';
   @media (max-width: 768px) {
     .anxiete-1 {
       width: 100vw;
-    }
-
-    .page-title {
-      width: 60%;
-      top: 10%;
-      left: 5%;
-      font-size: clamp(48px, 12vw, 160px);
     }
 
     .flower-blue {
