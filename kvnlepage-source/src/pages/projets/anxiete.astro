@@ -817,15 +817,17 @@ import Layout from '../../layouts/Layout.astro';
     align-items: center;
     justify-content: center;
     height: 100vh;
-    width: 100vh;
-    margin-left: 300px;
-    margin-right: 150px;
+    /* Larger width to fit doubled page dimensions */
+    width: 140vh;
+    margin-left: 130px;
+    margin-right: 80px;
     z-index: 2;
   }
 
   .book-canvas-container {
     width: 100%;
-    height: 80vh;
+    /* Increase canvas height to better display larger pages */
+    height: 95vh;
     position: relative;
     z-index: 3;
   }
@@ -956,11 +958,11 @@ import Layout from '../../layouts/Layout.astro';
     }
 
     .book-3d-section {
-      width: 90vw;
+      width: 95vw;
     }
 
     .book-canvas-container {
-      height: 50vh;
+      height: 60vh;
     }
 
     .square-red-separator {

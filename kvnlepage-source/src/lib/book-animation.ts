@@ -25,8 +25,8 @@ export class BookAnimation {
   private onPageChange?: (currentPage: number, totalPages: number) => void;
   private container: HTMLElement;
   private animationFrameId: number | null = null;
-  private readonly pageWidth = 1.8;
-  private readonly pageHeight = 2.4;
+  private readonly pageWidth = 2.5;
+  private readonly pageHeight = 3.3;
   private pages: PageSpread[];
   private loadedPages: Set<number> = new Set();
   private textureLoader: THREE.TextureLoader;
@@ -45,12 +45,13 @@ export class BookAnimation {
 
     // Create a group to hold all pages
     this.bookGroup = new THREE.Group();
+    this.bookGroup.scale.set(1, 1, 1);
     this.scene.add(this.bookGroup);
 
     // Camera setup
     const aspect = this.container.clientWidth / this.container.clientHeight;
     this.camera = new THREE.PerspectiveCamera(50, aspect, 0.1, 1000);
-    this.camera.position.set(0, 0.3, 4);
+    this.camera.position.set(0, 0.45, 4);
     this.camera.lookAt(0, 0, 0);
 
     // Renderer setup with transparent background
@@ -84,6 +85,9 @@ export class BookAnimation {
 
     // Load first few pages immediately, rest lazily
     this.loadPagesProgressively();
+        
+    // Center the book in view based on placeholder geometry
+    this.centerBookInView();
 
     // Handle resize
     window.addEventListener('resize', this.handleResize);
@@ -93,6 +97,25 @@ export class BookAnimation {
 
     // Start render loop
     this.animate();
+  }
+
+  // Compute bounding box of the bookGroup and center the camera horizontally
+  private centerBookInView(): void {
+    // Ensure scene has at least the placeholder geometry
+    try {
+      const box = new THREE.Box3().setFromObject(this.bookGroup);
+      const center = box.getCenter(new THREE.Vector3());
+      // Shift the book group so its center sits slightly to the right of origin
+      // This moves the pages visually to the right (opposite direction)
+      const horizontalOffset = 1.5; // increase to shift further right
+      this.bookGroup.position.x = -center.x + horizontalOffset;
+      // Ensure camera looks at scene origin
+      this.camera.lookAt(new THREE.Vector3(0, 0, 0));
+      this.requestRender();
+    } catch (e) {
+      // If something goes wrong, just ignore — centering is best-effort
+      // console.warn('Centering book failed', e);
+    }
   }
 
   private warmUp(): void {
