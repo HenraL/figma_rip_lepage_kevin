@@ -16,6 +16,10 @@ import Navigation from '../components/Navigation.astro';
     </div>
 
     <div class="white-square" />
+    <div class="white-square white-square-2" />
+    <div class="white-square white-square-3" />
+    <div class="white-square white-square-4" />
+    <div class="white-square white-square-5" />
     <div class="red-bar" />
     <img src="/assets/anxiete/flower-outline.svg" alt="" class="flower-outline" />
     <div class="dots-bottom" />
@@ -68,14 +72,18 @@ import Navigation from '../components/Navigation.astro';
   .white-square {
     position: absolute;
     top: 20%;
-    right: 0%;
-    width: 15%;
-    height: 15%;
+    right: 6.5%;
+    width: 4%;
     aspect-ratio: 1 / 1;
     pointer-events: none;
     z-index: 3;
     background-color: white;
   }
+
+  .white-square-2 { top: calc(20% + 12%); }
+  .white-square-3 { top: calc(20% + 24%); }
+  .white-square-4 { top: calc(20% + 36%); }
+  .white-square-5 { top: calc(20% + 48%); }
 
   .red-bar {
     position: absolute;
