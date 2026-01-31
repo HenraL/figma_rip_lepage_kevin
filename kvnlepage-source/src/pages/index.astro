@@ -12,19 +12,6 @@ import Navigation from '../components/Navigation.astro';
   </div>
 </Layout>
 
-<script>
-  import gsap from 'gsap';
-  import { hideEyesBackground } from '../lib/three-background';
-
-  document.addEventListener('astro:page-load', () => {
-    // Only hide eyes background if we're on the home page
-    if (window.location.pathname === '/' || window.location.pathname === '') {
-      hideEyesBackground();
-    }
-
-  });
-</script>
-
 <style>
   .home-content {
     height: 100vh;

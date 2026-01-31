@@ -55,12 +55,10 @@ const { title, page = 'home' } = Astro.props;
       <slot />
     </main>
     <script>
-      import { initBackground } from '../lib/three-background';
       import { initCursor } from '../lib/cursor';
 
       // Use astro:page-load for View Transitions compatibility
       document.addEventListener('astro:page-load', () => {
-        initBackground();
         initCursor();
       });
     </script>

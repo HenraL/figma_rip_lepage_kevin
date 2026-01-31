@@ -5,44 +5,20 @@ import Navigation from '../components/Navigation.astro';
 
 <Layout title="About" page="about">
   <Navigation current="about" />
+    <h1 class="page-title" data-animate="title">LEPAGE KEVIN</h1>
 
-  <div class="about-page">
-    <div class="about-content">
-      <h1 data-animate="title">À propos</h1>
-
-      <div class="about-text" data-animate="text">
-        <p>
-          Kevin Lepage est un designer basé en France, spécialisé dans la création
-          d'identités visuelles et d'expériences numériques uniques.
-        </p>
-        <p>
-          Avec une approche minimaliste et une attention particulière aux détails,
-          il crée des designs qui marquent les esprits.
-        </p>
-      </div>
-
-      <div class="skills" data-animate="skills">
-        <h2>Compétences</h2>
-        <ul>
-          <li>Direction artistique</li>
-          <li>Identité visuelle</li>
-          <li>Design UI/UX</li>
-          <li>Motion design</li>
-          <li>Illustration</li>
-        </ul>
-      </div>
-
-      <div class="tools" data-animate="tools">
-        <h2>Outils</h2>
-        <ul>
-          <li>Figma</li>
-          <li>Adobe Creative Suite</li>
-          <li>Blender</li>
-          <li>After Effects</li>
-        </ul>
-      </div>
+    <div class="about-text" data-animate="text">
+      <p>
+        Designer graphique hybride, porté par une sensibilité pour l’art et une fascination pour les couleurs. Je n’aime pas être enfermé dans une seule case.
+        Mon truc, c’est l’hybridation : mélanger les supports pour explorer notre part de sensibilité.
+        Chaque projet est pour moi une nouvelle occasion de chercher l’équilibre entre la rigueur graphique et le désordre des sentiments.
+      </p>
     </div>
-  </div>
+
+    <div class="white-square" />
+    <div class="red-bar" />
+    <img src="/assets/anxiete/flower-outline.svg" alt="" class="flower-outline" />
+    <div class="dots-bottom" />
 </Layout>
 
 <script>
@@ -67,17 +43,77 @@ import Navigation from '../components/Navigation.astro';
 </script>
 
 <style>
-  .about-page {
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 120px 80px 80px;
-    overflow-y: auto;
+  .page-title {
+    position: absolute;
+    top: 2%;
+    left: 8%;
+    z-index: 10;
+    opacity: 0;
+    margin: 0;
+    font-family: 'Bebas Neue', sans-serif;
+    font-stretch: condensed;
+    letter-spacing: 0.01em;
+    transform: scaleX(0.45) translateZ(0);
+    transform-origin: left;
+    will-change: transform;
+    text-transform: uppercase;
+    color: #fff;
+    font-size: clamp(100px, 20vw, 400px);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    pointer-events: none;
   }
 
-  .about-content {
-    max-width: 800px;
+  .white-square {
+    position: absolute;
+    top: 20%;
+    right: 0%;
+    width: 15%;
+    height: 15%;
+    aspect-ratio: 1 / 1;
+    pointer-events: none;
+    z-index: 3;
+    background-color: white;
+  }
+
+  .red-bar {
+    position: absolute;
+    top: 41.5%;
+    left: 8%;
+    width: 3.2%;
+    height: 60%;
+
+    pointer-events: none;
+    z-index: 5;
+
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 7 100' preserveAspectRatio='xMinYMin slice'%3E%3Cdefs%3E%3Cpattern id='p' patternUnits='userSpaceOnUse' width='1' height='1'%3E%3Ccircle cx='0.5' cy='0.5' r='0.35' fill='red'/%3E%3C/pattern%3E%3C/defs%3E%3Crect width='7' height='100' fill='url(%23p)'/%3E%3C/svg%3E")
+      no-repeat;
+    background-size: 100% 100%;
+  }
+
+  .flower-outline {
+    position: absolute;
+    bottom: 0%;
+    right: 4%;
+    width: 45%;
+    height: 45%;
+    aspect-ratio: 1 / 1;
+    object-fit: contain;
+    pointer-events: none;
+    z-index: 3;
+  }
+
+  .dots-bottom {
+    position: absolute;
+    bottom: 0%;
+    left: 1%;
+    width: 100%;
+    height: 16%;
+    z-index: 1;
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 50 3' preserveAspectRatio='none'%3E%3Cdefs%3E%3Cpattern id='p' patternUnits='objectBoundingBox' width='0.02' height='0.2'%3E%3Ccircle cx='0.1' cy='0.2' r='0.04' fill='white'/%3E%3C/pattern%3E%3C/defs%3E%3Crect width='50' height='3' fill='url(%23p)'/%3E%3C/svg%3E")
+      no-repeat;
+    background-size: 100% 100%;
   }
 
   h1 {
@@ -87,13 +123,13 @@ import Navigation from '../components/Navigation.astro';
   }
 
   .about-text {
-    font-size: 24px;
+    position: absolute;
+    top: 47%;
+    left: 14%;
+    width: 40%;
+    font-size: 22px;
     line-height: 1.6;
     margin-bottom: 60px;
-  }
-
-  .about-text p {
-    margin-bottom: 20px;
   }
 
   .skills, .tools {
