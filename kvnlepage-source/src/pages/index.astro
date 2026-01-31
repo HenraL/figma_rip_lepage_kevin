@@ -7,25 +7,21 @@ import Navigation from '../components/Navigation.astro';
   <Navigation />
 
   <div class="home-content">
-    <img src="/assets/logo.svg" alt="LEPAGE KÉVIN" class="hero-logo" data-animate="title" />
+    <h1 class="page-title">LEPAGE KÉVIN</h1>
+    <img src="/assets/portfolio.svg" class="portfolio" />
   </div>
 </Layout>
 
 <script>
   import gsap from 'gsap';
+  import { hideEyesBackground } from '../lib/three-background';
 
   document.addEventListener('astro:page-load', () => {
-    // Animate logo
-    gsap.fromTo('.hero-logo',
-      { opacity: 0, x: -50 },
-      {
-        opacity: 1,
-        x: 0,
-        duration: 0.8,
-        ease: 'power3.out',
-        delay: 0.3
-      }
-    );
+    // Only hide eyes background if we're on the home page
+    if (window.location.pathname === '/' || window.location.pathname === '') {
+      hideEyesBackground();
+    }
+
   });
 </script>
 
@@ -35,30 +31,37 @@ import Navigation from '../components/Navigation.astro';
     position: relative;
   }
 
-  .hero-logo {
+  .page-title {
     position: absolute;
-    top: 22px;
-    left: 67px;
-    width: 732px;
-    height: 317px;
+    left: 0.5%;
     z-index: 20;
-    opacity: 0;
+    margin: 0;
+    font-family: 'Bebas Neue', sans-serif;
+    font-stretch: condensed;
+    letter-spacing: 0.01em;
+    transform: scaleX(0.45) translateZ(0);
+    transform-origin: left;
+    will-change: transform;
+    text-transform: uppercase;
+    color: #fff;
+    font-size: clamp(100px, 2vw, 1vw);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    pointer-events: none;
   }
 
-  @media (max-width: 1024px) {
-    .hero-logo {
-      width: 50vw;
-      height: auto;
-      left: 40px;
-      top: 20px;
-    }
+  .portfolio {
+    position: absolute;
+    top: 50%;
+    left: 0%;
+    width: 100%;
+    height: 80%;
+    aspect-ratio: 1 / 1;
+    transform: translateY(-50%);
+    object-fit: contain;
+    z-index: 10;
+    opacity: 1;
   }
 
-  @media (max-width: 768px) {
-    .hero-logo {
-      width: 70vw;
-      left: 20px;
-      top: 80px;
-    }
-  }
 </style>

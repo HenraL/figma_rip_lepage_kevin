@@ -96,3 +96,17 @@ export function initBackground() {
 export function setBackgroundState(page: string) {
   console.log('Background state:', page);
 }
+
+export function hideEyesBackground() {
+  const eyesContainer = document.getElementById('eyes-bg');
+  if (eyesContainer) {
+    eyesContainer.style.display = 'none';
+  }
+}
+
+export function showEyesBackground() {
+  const eyesContainer = document.getElementById('eyes-bg');
+  if (eyesContainer) {
+    eyesContainer.style.display = 'block';
+  }
+}
