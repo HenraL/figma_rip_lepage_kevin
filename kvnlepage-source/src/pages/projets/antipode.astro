@@ -16,14 +16,14 @@ import Layout from '../../layouts/Layout.astro';
   <!-- Main Content - Horizontal Scroll Container -->
   <div id="horizontal-container" class="horizontal-container">
     <!-- Section 1: Antipode 1 (Figma node 54:10, 1512x982px) -->
-    <section id="anxiete-1" class="section anxiete-1">
+    <section id="antipode-1" class="section antipode-1">
       <!-- Layer 2: Dot patterns -->
       <div class="dots-left" />
       <div class="dots-bottom" />
       <div class="pink-bar" />
 
       <!-- Layer 3: Flowers (superposed) -->
-      <img src="/assets/anxiete/flower-outline.svg" alt="" class="flower-outline" />
+      <img src="/assets/flower-outline.svg" alt="" class="flower-outline" />
       <img src="/assets/antipode/flower-blue.svg" alt="" class="flower-blue" />
 
       <!-- Layer 4: Halftone squares (white dots) -->
@@ -35,7 +35,7 @@ import Layout from '../../layouts/Layout.astro';
       <h1 class="page-title">ANTIPODE</h1>
       <span class="number">02</span>
       <div class="voir-plus-container">
-        <a href="#anxiete-2" class="voir-plus" data-cursor-hover>
+        <a href="#antipode-2" class="voir-plus" data-cursor-hover>
           Voir plus
         </a>
         <div class="voir-plus-line" />
@@ -43,60 +43,14 @@ import Layout from '../../layouts/Layout.astro';
     </section>
 
     <!-- Section 2: Antipode 2 (Figma node 55:84, 4630x982px) -->
-    <section id="anxiete-2" class="section anxiete-2">
-      <!-- Fait-main background - landscape, covering more area -->
-      <img src="/assets/anxiete/fait-main.webp" alt="" class="fait-main-bg" />
-
-      <!-- Ellipse halftone behind triangle -->
-      <img src="/assets/anxiete/ellipse-halftone.svg" alt="" class="ellipse-overlay" />
-
-      <!-- Gallery area with poster as background -->
-      <div class="gallery-area">
-        <img src="/assets/anxiete/gallery-frame.webp" alt="Affiche du projet En Miettes" class="gallery-bg" />
-        <p class="gallery-caption">Affiche du projet "L'espace entre les yeux"</p>
-      </div>
-
-      <!-- Vector background triangle -->
-      <img src="/assets/anxiete/vector-bg.svg" alt="" class="vector-bg" />
-
-      <!-- Title section with overlay -->
-      <div class="title-section">
-        <img src="/assets/anxiete/en-miette-outline.svg" alt="" class="title-outline" />
-        <img src="/assets/anxiete/en-miette-dots.svg" alt="" class="title-dots" />
-        <span class="big-number">01</span>
-      </div>
-
-      <!-- Project Description -->
-      <div class="project-description">
-        <!-- Blue square floating top-left -->
-        <img src="/assets/anxiete/square-halftone-blue.svg" alt="" class="square-blue-separator" />
-        <h2>Projet : Antipode - "L'espace entre les yeux"</h2>
-        <p class="subtitle">Thématique : Édition expérimentale et recherche chromatique sur les états de crise.</p>
-
-        <h3>1. L'Intention</h3>
-        <p>Au départ d'un mot imposé "L'espace entre les yeux", j'ai choisi d'explorer la fragmentation de l'identité face à l'Antipode. Ce projet est une immersion dans ma propre peau, transformant un ressenti impalpable en un objet éditorial physique. L'édition ne se contente pas de documenter l'Antipode : elle en devient la mémoire visuelle.</p>
-
-        <h3>2. La Narration Chromatique</h3>
-        <p>Pour traduire le déroulement temporel et psychologique d'une crise, j'ai instauré un système de dégradation chromatique et de perte d'opacité :</p>
-        <ul>
-          <li><strong>Le Rouge :</strong> L'intensité pure, l'urgence viscérale, le moment où le corps est saturé d'informations et de peur.</li>
-          <li><strong>La Transition :</strong> Une baisse progressive de l'opacité symbolisant la désintégration, l'effritement de l'esprit — la mise "en miettes" de la conscience.</li>
-          <li><strong>Le Blanc :</strong> L'épuisement final, le vide, ou le retour au calme par l'effacement total.</li>
-        </ul>
-
-        <h3>3. Esthétique et Mise en Page</h3>
-        <p>En m'appuyant sur des visuels à fort contraste et des textures de type halftones (trames de points), j'ai voulu créer un lien entre le grain de l'image et la fragilité du ressenti.</p>
-        <p class="quote"><span class="blue">«</span> Le texte devient image, l'image devient texture, et l'ensemble illustre la perte de repères. <span class="blue">»</span></p>
-      </div>
-
-      <!-- Book section - 3D interactive book -->
-      <div class="book-3d-section">
-        <div id="book-canvas-container" class="book-canvas-container">
-          <div class="book-click-zone book-click-prev" aria-label="Page précédente" />
-          <div class="book-click-zone book-click-next" aria-label="Page suivante" />
-        </div>
-        <span class="book-page-indicator">1 / 12</span>
-      </div>
+    <section id="antipode-2" class="section antipode-2">
+      <h1 class="antipode-title" data-animate="title">ANTIPODE</h1>
+      <div class="ellipse-pink-left" />
+      <div class="dots-top" />
+      <div class="white-bar" />
+      <div class="diag-bar" />
+      <div class="diag-bar second-bar" />
+      <div class="diag-bar third-bar" />
     </section>
   </div>
 
@@ -118,9 +72,6 @@ import Layout from '../../layouts/Layout.astro';
 
 <script>
   import gsap from 'gsap';
-  import { BookAnimation } from '../../lib/book-animation';
-
-  let bookAnimation: BookAnimation | null = null;
 
   document.addEventListener('astro:page-load', () => {
     const loadingScreen = document.getElementById('loading-screen');
@@ -129,7 +80,7 @@ import Layout from '../../layouts/Layout.astro';
     const loadingTitle = document.querySelector('.loading-title');
 
     // Check if this is a View Transition navigation (not initial page load)
-    const isViewTransition = sessionStorage.getItem('anxiete-visited') === 'true';
+    const isViewTransition = sessionStorage.getItem('antipode-visited') === 'true';
 
     if (isViewTransition && loadingScreen) {
       // Skip loading animation on View Transition navigations
@@ -137,7 +88,7 @@ import Layout from '../../layouts/Layout.astro';
       initHorizontalScroll();
     } else {
       // Mark as visited for future navigations
-      sessionStorage.setItem('anxiete-visited', 'true');
+      sessionStorage.setItem('antipode-visited', 'true');
 
       // Loading animation
       gsap.to(loadingProgress, {
@@ -178,7 +129,7 @@ import Layout from '../../layouts/Layout.astro';
       container.style.width = `${totalWidth}px`;
 
       // Restore scroll position from sessionStorage if available
-      const savedScroll = sessionStorage.getItem('anxiete-scroll-position');
+      const savedScroll = sessionStorage.getItem('antipode-scroll-position');
       let scrollLeft = savedScroll ? parseFloat(savedScroll) : 0;
       const maxScroll = totalWidth - window.innerWidth;
 
@@ -210,7 +161,7 @@ import Layout from '../../layouts/Layout.astro';
         scrollLeft = Math.max(0, Math.min(scrollLeft, maxScroll));
 
         // Save scroll position to sessionStorage
-        sessionStorage.setItem('anxiete-scroll-position', scrollLeft.toString());
+        sessionStorage.setItem('antipode-scroll-position', scrollLeft.toString());
 
         gsap.to(container, {
           x: -scrollLeft,
@@ -238,11 +189,11 @@ import Layout from '../../layouts/Layout.astro';
       const voirPlus = document.querySelector('.voir-plus');
       voirPlus?.addEventListener('click', (e) => {
         e.preventDefault();
-        const section2 = document.getElementById('anxiete-2');
+        const section2 = document.getElementById('antipode-2');
         scrollLeft = section2.offsetLeft;
 
         // Save scroll position
-        sessionStorage.setItem('anxiete-scroll-position', scrollLeft.toString());
+        sessionStorage.setItem('antipode-scroll-position', scrollLeft.toString());
 
         gsap.to(container, {
           x: -scrollLeft,
@@ -256,12 +207,12 @@ import Layout from '../../layouts/Layout.astro';
         }
       });
 
-      // Clear scroll position when navigating away from the anxiete page
+      // Clear scroll position when navigating away from the antipode page
       document.addEventListener('astro:before-swap', (e) => {
         // Only clear if navigating to a different page (not the same page)
         const newUrl = e.to?.url || window.location.href;
-        if (!newUrl.includes('/projets/anxiete')) {
-          sessionStorage.removeItem('anxiete-scroll-position');
+        if (!newUrl.includes('/projets/antipode')) {
+          sessionStorage.removeItem('antipode-scroll-position');
         }
       }, { once: true });
 
@@ -273,84 +224,8 @@ import Layout from '../../layouts/Layout.astro';
       gsap.fromTo('.voir-plus-container', { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.5, delay: 0.8 });
       gsap.fromTo('.dots-bottom', { opacity: 0, visibility: 'hidden' }, { opacity: 1, visibility: 'visible', duration: 0.8, ease: 'power3.out', delay: 0.5 });
 
-      // Initialize 3D book animation
-      initBookAnimation();
     }
 
-    function initBookAnimation() {
-      const bookContainer = document.getElementById('book-canvas-container');
-      const pageIndicator = document.querySelector('.book-page-indicator');
-      const prevZone = document.querySelector('.book-click-prev');
-      const nextZone = document.querySelector('.book-click-next');
-
-      if (!bookContainer) return;
-
-      // Left cover (static, always visible on left side)
-      const leftCover = '/assets/anxiete/book-couv.webp';
-
-      // Flippable pages with front and back textures
-      // Book starts open: left shows leftCover, right shows first page front (book-couv-2)
-      const bookPages = [
-        { front: '/assets/anxiete/book-couv-2.webp', back: '/assets/anxiete/book-page-01.webp' },
-        { front: '/assets/anxiete/book-page-02.webp', back: '/assets/anxiete/book-page-03.webp' },
-        { front: '/assets/anxiete/book-page-04.webp', back: '/assets/anxiete/book-page-05.webp' },
-        { front: '/assets/anxiete/book-page-06.webp', back: '/assets/anxiete/book-page-07.webp' },
-        { front: '/assets/anxiete/book-page-08.webp', back: '/assets/anxiete/book-page-09.webp' },
-        { front: '/assets/anxiete/book-page-10.webp', back: '/assets/anxiete/book-page-11.webp' },
-        { front: '/assets/anxiete/book-page-12.webp', back: '/assets/anxiete/book-page-13.webp' },
-        { front: '/assets/anxiete/book-page-14.webp', back: '/assets/anxiete/book-page-15.webp' },
-        { front: '/assets/anxiete/book-page-16.webp', back: '/assets/anxiete/book-page-17.webp' },
-        { front: '/assets/anxiete/book-page-18.webp', back: '/assets/anxiete/book-page-19.webp' },
-        { front: '/assets/anxiete/book-page-20.webp', back: '/assets/anxiete/book-page-21.webp' },
-        { front: '/assets/anxiete/book-page-22.webp', back: '/assets/anxiete/book-page-23.webp' },
-      ];
-
-      // Destroy previous instance if exists (for View Transitions)
-      if (bookAnimation) {
-        bookAnimation.destroy();
-        bookAnimation = null;
-      }
-
-      bookAnimation = new BookAnimation({
-        container: bookContainer,
-        leftCover,
-        pages: bookPages,
-        onPageChange: (current, total) => {
-          if (pageIndicator) {
-            pageIndicator.textContent = `${current} / ${total}`;
-          }
-        }
-      });
-
-      // Click zone controls
-      prevZone?.addEventListener('click', () => {
-        bookAnimation?.prevPage();
-      });
-
-      nextZone?.addEventListener('click', () => {
-        bookAnimation?.nextPage();
-      });
-
-      // Keyboard controls
-      const handleKeydown = (e: KeyboardEvent) => {
-        if (e.key === 'ArrowLeft') {
-          bookAnimation?.prevPage();
-        } else if (e.key === 'ArrowRight') {
-          bookAnimation?.nextPage();
-        }
-      };
-
-      document.addEventListener('keydown', handleKeydown);
-
-      // Cleanup on page leave
-      document.addEventListener('astro:before-swap', () => {
-        document.removeEventListener('keydown', handleKeydown);
-        if (bookAnimation) {
-          bookAnimation.destroy();
-          bookAnimation = null;
-        }
-      }, { once: true });
-    }
   });
 </script>
 
@@ -423,7 +298,7 @@ import Layout from '../../layouts/Layout.astro';
   /* Antipode 1 - Figma positions (1512x982 frame) */
   /* All positions converted to percentages */
   /* ==================== */
-  .anxiete-1 {
+  .antipode-1 {
     width: 100vw;
     background: #000;
   }
@@ -600,9 +475,8 @@ import Layout from '../../layouts/Layout.astro';
 
   /* ==================== */
   /* Antipode 2 - Figma node 55:84, 4630x982px */
-  /* Gallery-frame as background element */
   /* ==================== */
-  .anxiete-2 {
+  .antipode-2 {
     width: auto;
     min-width: 3200px;
     background: #000;
@@ -613,230 +487,83 @@ import Layout from '../../layouts/Layout.astro';
     position: relative;
   }
 
-  /* Blue square floating top-right of text */
-  .square-blue-separator {
+  .antipode-title {
     position: absolute;
-    top: -10vh;
-    right: -35vh;
-    width: 18vh;
-    height: 18vh;
-    z-index: 0;
-  }
-
-  /* Gallery area - poster as background with overlays */
-  .gallery-area {
-    flex-shrink: 0;
-    position: relative;
-    height: 85vh;
-    margin-left: -61px;
-    z-index: 2;
-  }
-
-  .gallery-bg {
-    height: 100%;
-    width: auto;
-    display: block;
-  }
-
-  .ellipse-overlay {
-    position: absolute;
-    bottom: -25%;
-    left: 10%;
-    width: 490px;
-    height: 490px;
-    opacity: 1;
+    top: -30px;
+    left: 150px;
+    z-index: 1;
+    font-family: 'Bebas Neue', sans-serif;
+    font-stretch: condensed;
+    letter-spacing: 0.01em;
+    transform: scaleX(0.45) translateZ(0);
+    transform-origin: left;
+    will-change: transform;
+    text-transform: uppercase;
+    color: #fff;
+    font-size: clamp(100px, 50vw, 900px);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
     pointer-events: none;
-    z-index: 0;
   }
 
-  .gallery-caption {
+  .ellipse-pink-left {
     position: absolute;
-    bottom: 5%;
-    left: 50%;
-    transform: translateX(-50%);
-    font-style: italic;
-    font-size: 16px;
-    white-space: nowrap;
-    opacity: 0.8;
+    top: 40px;
+    left: 100px;
+    width: 150px;
+    height: 150px;
+    pointer-events: none;
+    z-index: 2;
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100' preserveAspectRatio='xMidYMid meet'%3E%3Cdefs%3E%3Cpattern id='p-ellipse' patternUnits='userSpaceOnUse' width='3' height='3'%3E%3Ccircle cx='1.5' cy='1.5' r='1.5' fill='deeppink'/%3E%3C/pattern%3E%3Cmask id='ellipse-mask'%3E%3Cellipse cx='50' cy='50' rx='48' ry='48' fill='white'/%3E%3C/mask%3E%3C/defs%3E%3Crect width='100' height='100' fill='url(%23p-ellipse)' mask='url(%23ellipse-mask)'/%3E%3C/svg%3E")
+      no-repeat;
+    background-size: 100% 100%;
   }
 
-  /* Vector background triangle */
-  .vector-bg {
+  .dots-top {
     position: absolute;
-    left: 0;
-    top: 0;
-    height: 100vh;
-    width: 100vh;
-    opacity: 1;
+    top: 0px;
+    left: 300px;
+    width: 1300px;
+    height: 120px;
+    z-index: 1;
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 4' preserveAspectRatio='none'%3E%3Cdefs%3E%3Cpattern id='p' patternUnits='objectBoundingBox' width='0.02' height='0.2'%3E%3Ccircle cx='0.1' cy='0.1' r='0.05' fill='white'/%3E%3C/pattern%3E%3C/defs%3E%3Crect width='30' height='4' fill='url(%23p)'/%3E%3C/svg%3E")
+      no-repeat;
+    background-size: 100% 100%;
+  }
+
+  .white-bar {
+    position: absolute;
+    bottom: 60px;
+    left: 0px;
+    width: 1480px;
+    height: 40px;
     pointer-events: none;
     z-index: 1;
+    background-color: white;
   }
 
-  /* Title section with EN MIETTE + 01 overlays */
-  .title-section {
-    position: relative;
-    flex-shrink: 0;
-    width: 500px;
-    height: 70vh;
-  }
-
-  .title-outline {
+  .diag-bar {
     position: absolute;
-    top: 10%;
-    left: 0;
-    width: 100%;
-    height: auto;
-  }
-
-  .title-fill {
-    position: absolute;
-    top: 18%;
-    left: -8%;
-    width: 100%;
-    height: auto;
-    opacity: 0.6;
-  }
-
-  .title-dots {
-    position: absolute;
-    top: 22%;
-    left: -5%;
-    width: 100%;
-    height: auto;
-    opacity: 0.8;
-  }
-
-  .big-number {
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-    font-size: 364px;
-    font-weight: 700;
-    color: transparent;
-    -webkit-text-stroke: 2px #00e1ff;
-    text-stroke: 2px #00e1ff;
-    line-height: 1;
-  }
-
-  /* Project description */
-  .project-description {
-    position: relative;
-    flex-shrink: 0;
-    width: 600px;
-    padding: 40px 0;
-    margin-right: 200px;
-    z-index: 1;
-  }
-
-  .project-description h2 {
-    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-    font-size: 28px;
-    font-weight: 700;
-    margin-bottom: 20px;
-  }
-
-  .project-description .subtitle {
-    font-size: 14px;
-    margin-bottom: 30px;
-    opacity: 0.8;
-  }
-
-  .project-description h3 {
-    font-size: 18px;
-    font-weight: 700;
-    margin: 25px 0 15px;
-  }
-
-  .project-description p {
-    font-size: 14px;
-    line-height: 1.7;
-    margin-bottom: 15px;
-  }
-
-  .project-description ul {
-    list-style: disc;
-    margin-left: 20px;
-    margin-bottom: 15px;
-  }
-
-  .project-description li {
-    font-size: 14px;
-    line-height: 1.7;
-    margin-bottom: 12px;
-  }
-
-  .project-description .quote {
-    font-style: italic;
-    margin-top: 20px;
-  }
-
-  .project-description .blue {
-    color: #00e1ff;
-  }
-
-  /* Book section - 3D interactive book */
-  .book-3d-section {
-    flex-shrink: 0;
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-    width: 140vh;
-    margin-left: 120px;
-    margin-right: 80px;
-    z-index: 2;
-  }
-
-  .book-canvas-container {
-    width: 100%;
-    height: 95vh;
-    position: relative;
-    z-index: 3;
-  }
-
-  .book-canvas-container canvas {
-    display: block;
-  }
-
-  /* Invisible click zones for page navigation */
-  .book-click-zone {
-    position: absolute;
-    top: 0;
-    height: 100%;
-    width: 50%;
-    z-index: 10;
-  }
-
-  .book-click-prev {
-    left: 0;
-  }
-
-  .book-click-next {
-    right: 0;
-  }
-
-  .book-page-indicator {
-    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-    font-size: 16px;
-    color: rgba(255, 255, 255, 0.8);
-    text-align: center;
-    margin-top: 20px;
-  }
-
-  /* Fait-main background - landscape, covering section 2 */
-  .fait-main-bg {
-    position: absolute;
-    top: 50%;
-    right: -1%;
-    height: 200%;
-    width: auto;
-    transform: translateY(-50%) rotate(90deg);
-    z-index: 0;
+    bottom: 450px;
+    left: 980px;
+    width: 1200px;
+    height: 70px;
     pointer-events: none;
+    z-index: 1;
+    background-color: #00E1FF;
+    rotate: -60deg;
+  }
+
+  .second-bar {
+    position: absolute;
+    left: 1100px;
+    background-color: deeppink
+  }
+
+  .third-bar {
+    position: absolute;
+    left: 1220px;
   }
 
   /* Back Button */
@@ -872,7 +599,7 @@ import Layout from '../../layouts/Layout.astro';
   /* Mobile Responsive */
   /* ==================== */
   @media (max-width: 768px) {
-    .anxiete-1 {
+    .antipode-1 {
       width: 100vw;
     }
 
@@ -901,7 +628,7 @@ import Layout from '../../layouts/Layout.astro';
       display: none;
     }
 
-    .anxiete-2 {
+    .antipode-2 {
       width: 500vw;
       padding: 0 30px;
       gap: 50px;
@@ -917,29 +644,6 @@ import Layout from '../../layouts/Layout.astro';
 
     .project-description {
       width: 85vw;
-    }
-
-    .gallery-bg {
-      height: 60vh;
-    }
-
-    .book-3d-section {
-      width: 95vw;
-    }
-
-    .book-canvas-container {
-      height: 60vh;
-    }
-
-    .square-blue-separator {
-      width: 12vh;
-      height: 12vh;
-      top: -3vh;
-      right: -6vh;
-    }
-
-    .ellipse-overlay {
-      width: 150px;
     }
 
     .back-button {

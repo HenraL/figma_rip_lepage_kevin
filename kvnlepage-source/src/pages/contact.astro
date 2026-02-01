@@ -15,12 +15,11 @@ const email = 'contact@kevinlepage.com';
     <div class="dots-bottom" />
 
     <div class="contact-info" data-animate="title">
-      <h1>kelapage.da@gmail.com<h1/>
+      <div class="contact-social" data-animate="social">
+        <SocialLinks />
+      </div>
+      <h1>klepage.da@gmail.com<h1/>
       <h1>06 13 13 19 32<h1/>
-    <div/>
-
-    <div class="contact-social" data-animate="social">
-      <SocialLinks />
     </div>
 </Layout>
 
@@ -99,22 +98,6 @@ const email = 'contact@kevinlepage.com';
     background-color: red;
   }
 
-  .white-square {
-    position: absolute;
-    top: 20%;
-    right: 6.5%;
-    width: 4%;
-    aspect-ratio: 1 / 1;
-    pointer-events: none;
-    z-index: 3;
-    background-color: white;
-  }
-
-  .white-square-2 { top: calc(20% + 12%); }
-  .white-square-3 { top: calc(20% + 24%); }
-  .white-square-4 { top: calc(20% + 36%); }
-  .white-square-5 { top: calc(20% + 48%); }
-
   .dots-bottom {
     position: absolute;
     bottom: 0%;
@@ -151,6 +134,6 @@ const email = 'contact@kevinlepage.com';
 
   .contact-social {
     position: absolute;
-    top: -11vw
+    top: -200px;
   }
 </style>
