@@ -51,6 +51,11 @@ import Layout from '../../layouts/Layout.astro';
       <div class="diag-bar" />
       <div class="diag-bar second-bar" />
       <div class="diag-bar third-bar" />
+
+      <div class="diag-bar fourth-bar" />
+      <div class="diag-bar fifth-bar" />
+      <img src="/assets/antipode/LUNETTES.svg" alt="" class="lunettes" />
+      <img src="/assets/antipode/OMBRE.svg" alt="" class="ombre" />
     </section>
   </div>
 
@@ -564,6 +569,42 @@ import Layout from '../../layouts/Layout.astro';
   .third-bar {
     position: absolute;
     left: 1220px;
+  }
+
+  .fourth-bar {
+    position: absolute;
+    bottom: 300px;
+    left: 1470px;
+    width: 1400px;
+    height: 400px;
+    background-color: deeppink
+  }
+
+  .fifth-bar {
+    position: absolute;
+    bottom: 300px;
+    left: 1932px;
+    width: 1400px;
+    height: 400px;
+  }
+
+  .lunettes {
+    position: absolute;
+    left: 1250px;
+    top: 265px;
+    width: 2200px;
+    z-index: 4;
+    rotate: -58.4deg;
+  }
+
+  .ombre {
+    position: absolute;
+    left: 1400px;
+    top: 265px;
+    width: 2200px;
+    z-index: 3;
+    opacity: 0.3;
+    rotate: -58.4deg;
   }
 
   /* Back Button */
