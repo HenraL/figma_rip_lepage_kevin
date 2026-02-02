@@ -56,6 +56,15 @@ import Layout from '../../layouts/Layout.astro';
       <div class="diag-bar fifth-bar" />
       <img src="/assets/antipode/LUNETTES.svg" alt="" class="lunettes" />
       <img src="/assets/antipode/OMBRE.svg" alt="" class="ombre" />
+
+      <!-- Book section - 3D interactive book -->
+      <div class="book-3d-section">
+        <div id="book-canvas-container" class="book-canvas-container">
+          <div class="book-click-zone book-click-prev" aria-label="Page précédente"></div>
+          <div class="book-click-zone book-click-next" aria-label="Page suivante"></div>
+        </div>
+        <span class="book-page-indicator">1 / 12</span>
+      </div>
     </section>
   </div>
 
@@ -77,6 +86,9 @@ import Layout from '../../layouts/Layout.astro';
 
 <script>
   import gsap from 'gsap';
+  import { BookAnimation } from '../../lib/book-animation';
+
+  let bookAnimation: BookAnimation | null = null;
 
   document.addEventListener('astro:page-load', () => {
     const loadingScreen = document.getElementById('loading-screen');
@@ -129,7 +141,7 @@ import Layout from '../../layouts/Layout.astro';
       const section1 = sections[0];
       const section2 = sections[1];
       const section2ContentWidth = section2?.scrollWidth || section2?.offsetWidth || 0;
-      const totalWidth = (section1?.offsetWidth || 0) + Math.max(section2ContentWidth, 3200);
+      const totalWidth = (section1?.offsetWidth || 0) + Math.max(section2ContentWidth, 4000);
 
       container.style.width = `${totalWidth}px`;
 
@@ -228,9 +240,79 @@ import Layout from '../../layouts/Layout.astro';
       gsap.fromTo('.number', { opacity: 0 }, { opacity: 1, duration: 0.5, delay: 0.6 });
       gsap.fromTo('.voir-plus-container', { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.5, delay: 0.8 });
       gsap.fromTo('.dots-bottom', { opacity: 0, visibility: 'hidden' }, { opacity: 1, visibility: 'visible', duration: 0.8, ease: 'power3.out', delay: 0.5 });
-
     }
 
+    function initBookAnimation() {
+      const bookContainer = document.getElementById('book-canvas-container');
+      const pageIndicator = document.querySelector('.book-page-indicator');
+      const prevZone = document.querySelector('.book-click-prev');
+      const nextZone = document.querySelector('.book-click-next');
+
+      if (!bookContainer) return;
+
+      // Left cover (static, always visible on left side)
+      const leftCover = '/assets/anxiete/Couv-01.webp';
+
+      // Flippable pages with front and back textures
+      // Book starts open: left shows leftCover, right shows first page front (Couv-02)
+      const bookPages = [
+        { front: '/assets/antipode/Couv-02.webp', back: '/assets/antipode/01.webp' },
+        { front: '/assets/antipode/02.webp', back: '/assets/antipode/03.webp' },
+        { front: '/assets/antipode/04.webp', back: '/assets/antipode/05.webp' },
+        { front: '/assets/antipode/06.webp', back: '/assets/antipode/07.webp' },
+        { front: '/assets/antipode/08.webp', back: '/assets/antipode/09.webp' },
+        { front: '/assets/antipode/10.webp', back: '/assets/antipode/11.webp' },
+        { front: '/assets/antipode/12.webp', back: '/assets/antipode/13.webp' },
+        { front: '/assets/antipode/14.webp', back: '/assets/antipode/15.webp' },
+        { front: '/assets/antipode/16.webp'},
+      ];
+
+      // Destroy previous instance if exists (for View Transitions)
+      if (bookAnimation) {
+        bookAnimation.destroy();
+        bookAnimation = null;
+      }
+
+      bookAnimation = new BookAnimation({
+        container: bookContainer,
+        leftCover,
+        pages: bookPages,
+        onPageChange: (current, total) => {
+          if (pageIndicator) {
+            pageIndicator.textContent = `${current} / ${total}`;
+          }
+        }
+      });
+
+      // Click zone controls
+      prevZone?.addEventListener('click', () => {
+        bookAnimation?.prevPage();
+      });
+
+      nextZone?.addEventListener('click', () => {
+        bookAnimation?.nextPage();
+      });
+
+      // Keyboard controls
+      const handleKeydown = (e: KeyboardEvent) => {
+        if (e.key === 'ArrowLeft') {
+          bookAnimation?.prevPage();
+        } else if (e.key === 'ArrowRight') {
+          bookAnimation?.nextPage();
+        }
+      };
+
+      document.addEventListener('keydown', handleKeydown);
+
+      // Cleanup on page leave
+      document.addEventListener('astro:before-swap', () => {
+        document.removeEventListener('keydown', handleKeydown);
+        if (bookAnimation) {
+          bookAnimation.destroy();
+          bookAnimation = null;
+        }
+      }, { once: true });
+    }
   });
 </script>
 
@@ -483,7 +565,7 @@ import Layout from '../../layouts/Layout.astro';
   /* ==================== */
   .antipode-2 {
     width: auto;
-    min-width: 3200px;
+    min-width: 4000px;
     background: #000;
     display: flex;
     align-items: center;
@@ -670,10 +752,63 @@ import Layout from '../../layouts/Layout.astro';
     }
 
     .antipode-2 {
-      width: 500vw;
+      width: 4000px;
       padding: 0 30px;
       gap: 50px;
     }
+
+  /* Book section - 3D interactive book */
+  .book-3d-section {
+    flex-shrink: 0;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    /* Larger width to fit doubled page dimensions */
+    width: 1600px;
+    margin-left: 130px;
+    margin-right: 80px;
+    z-index: 2;
+  }
+
+  .book-canvas-container {
+    width: 100%;
+    /* Increase canvas height to better display larger pages */
+    height: 95vh;
+    position: relative;
+    z-index: 3;
+  }
+
+  .book-canvas-container canvas {
+    display: block;
+  }
+
+  /* Invisible click zones for page navigation */
+  .book-click-zone {
+    position: absolute;
+    top: 0;
+    height: 100%;
+    width: 50%;
+    z-index: 10;
+  }
+
+  .book-click-prev {
+    left: 0;
+  }
+
+  .book-click-next {
+    right: 0;
+  }
+
+  .book-page-indicator {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 16px;
+    color: rgba(255, 255, 255, 0.8);
+    text-align: center;
+    margin-top: 20px;
+  }
 
     .title-section {
       width: 300px;
