@@ -38,6 +38,7 @@ export class BookAnimation {
     this.totalPages = options.pages.length;
     this.onPageChange = options.onPageChange;
     this.pages = options.pages;
+    console.log("pages=", this.pages);
     this.textureLoader = new THREE.TextureLoader();
 
     // Initialize Three.js scene
@@ -85,7 +86,7 @@ export class BookAnimation {
 
     // Load first few pages immediately, rest lazily
     this.loadPagesProgressively();
-        
+
     // Center the book in view based on placeholder geometry
     this.centerBookInView();
 
