@@ -248,7 +248,10 @@ import Layout from '../../layouts/Layout.astro';
       const prevZone = document.querySelector('.book-click-prev');
       const nextZone = document.querySelector('.book-click-next');
 
-      if (!bookContainer) return;
+      if (!bookContainer) {
+        console.error("No book Container");
+        return;
+      }
 
       // Left cover (static, always visible on left side)
       const leftCover = '/assets/antipode/Couv-1-1.webp';
@@ -269,6 +272,7 @@ import Layout from '../../layouts/Layout.astro';
 
       // Destroy previous instance if exists (for View Transitions)
       if (bookAnimation) {
+        console.log("BookAnimation found, destroying");
         bookAnimation.destroy();
         bookAnimation = null;
       }
@@ -286,15 +290,18 @@ import Layout from '../../layouts/Layout.astro';
 
       // Click zone controls
       prevZone?.addEventListener('click', () => {
+        console.log("prevZone clicked");
         bookAnimation?.prevPage();
       });
 
       nextZone?.addEventListener('click', () => {
+        console.log("nextZone clicked");
         bookAnimation?.nextPage();
       });
 
       // Keyboard controls
       const handleKeydown = (e: KeyboardEvent) => {
+        console.log("Key pressed");
         if (e.key === 'ArrowLeft') {
           bookAnimation?.prevPage();
         } else if (e.key === 'ArrowRight') {
@@ -306,10 +313,13 @@ import Layout from '../../layouts/Layout.astro';
 
       // Cleanup on page leave
       document.addEventListener('astro:before-swap', () => {
+        console.log("before-swap");
         document.removeEventListener('keydown', handleKeydown);
         if (bookAnimation) {
+          console.log("BookAnimation destroying");
           bookAnimation.destroy();
           bookAnimation = null;
+          console.log("BookAnimation destroyed");
         }
       }, { once: true });
     }
