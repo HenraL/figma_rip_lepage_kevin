@@ -240,9 +240,11 @@ import Layout from '../../layouts/Layout.astro';
       gsap.fromTo('.number', { opacity: 0 }, { opacity: 1, duration: 0.5, delay: 0.6 });
       gsap.fromTo('.voir-plus-container', { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.5, delay: 0.8 });
       gsap.fromTo('.dots-bottom', { opacity: 0, visibility: 'hidden' }, { opacity: 1, visibility: 'visible', duration: 0.8, ease: 'power3.out', delay: 0.5 });
+      initBookAnimation();
     }
 
     function initBookAnimation() {
+      console.log("In initBookAnimation");
       const bookContainer = document.getElementById('book-canvas-container');
       const pageIndicator = document.querySelector('.book-page-indicator');
       const prevZone = document.querySelector('.book-click-prev');
